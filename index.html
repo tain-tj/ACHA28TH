@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-ACHA and ACHA 28th | กำหนดการเดินทางและเข้าร่วมประชุม</title>
+
+  <!-- Google Fonts: Prompt (Headings & UI) and Sarabun (Body Text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- html2canvas for High-Resolution JPG Export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Design Tokens: Royal Navy / Medical Blue / Warm Gold Accent -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            prompt: ['"Prompt"', 'sans-serif'],
+            sarabun: ['"Sarabun"', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#071426',
+              900: '#0C2340',
+              800: '#13335C',
+              700: '#1D467A',
+            },
+            medblue: {
+              50: '#EFF7FF',
+              100: '#DBEFFE',
+              200: '#BFE2FD',
+              500: '#1D74C6',
+              600: '#155FA8',
+              700: '#124D88',
+              800: '#144170',
+            },
+            goldbrand: {
+              50: '#FFFBEB',
+              100: '#FEF3C7',
+              200: '#FDE68A',
+              300: '#FCD34D',
+              400: '#FBBF24',
+              500: '#D99B16',
+              600: '#B47B09',
+              700: '#8F5E06',
+            },
+            taichung: {
+              50: '#F5F3FF',
+              100: '#EDE9FE',
+              200: '#DDD6FE',
+              600: '#6D28D9',
+              700: '#5B21B6',
+            }
+          },
+          boxShadow: {
+            'card': '0 6px 24px -4px rgba(12, 35, 64, 0.08), 0 2px 6px -1px rgba(12, 35, 64, 0.04)',
+            'card-hover': '0 14px 32px -6px rgba(21, 95, 168, 0.18), 0 4px 12px -2px rgba(12, 35, 64, 0.06)',
+            'sheet': '0 -12px 44px -6px rgba(7, 20, 38, 0.28)',
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sarabun antialiased selection:bg-medblue-600 selection:text-white overflow-x-hidden min-h-screen flex flex-col">
+
+  <!-- ==================== HERO HEADER ==================== -->
+  <header class="relative bg-gradient-to-br from-navy-950 via-navy-900 to-medblue-800 text-white overflow-hidden shadow-lg">
+    <!-- Top Gold-Blue Accent Bar -->
+    <div class="pointer-events-none absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-medblue-500 via-goldbrand-400 to-medblue-500"></div>
+    <!-- Subtle Decorative Background Glows -->
+    <div class="pointer-events-none absolute -top-20 -right-16 w-72 h-72 rounded-full bg-medblue-500/20 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-24 -left-16 w-64 h-64 rounded-full bg-goldbrand-400/15 blur-3xl"></div>
+
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 pt-6 pb-8 sm:pt-9 sm:pb-11">
+      <!-- Top Bar: Event Date Pill + Font Size Controls (ก- / ก+) -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-prompt font-medium bg-white/10 border border-white/20 backdrop-blur-sm text-goldbrand-200">
+          <i class="fa-regular fa-calendar-check text-goldbrand-400"></i>
+          <span>24 – 29 พฤศจิกายน 2026</span>
+        </span>
+
+        <!-- Font Size Control Widget -->
+        <div class="inline-flex items-center gap-1 bg-navy-950/60 border border-white/20 rounded-full p-1 backdrop-blur-sm" role="group" aria-label="ปรับขนาดตัวอักษร">
+          <button
+            type="button"
+            id="fontDecreaseBtn"
+            title="ลดขนาดตัวอักษร"
+            class="px-3 py-1.5 rounded-full text-sm font-prompt font-semibold text-white hover:bg-white/15 active:scale-95 disabled:opacity-40 transition-all min-w-[44px]"
+          >
+            ก-
+          </button>
+          <span id="fontSizeLabel" class="px-1.5 text-xs font-prompt text-goldbrand-200 font-medium select-none">
+            100%
+          </span>
+          <button
+            type="button"
+            id="fontIncreaseBtn"
+            title="ขยายขนาดตัวอักษร"
+            class="px-3 py-1.5 rounded-full text-sm font-prompt font-semibold text-white hover:bg-white/15 active:scale-95 disabled:opacity-40 transition-all min-w-[44px]"
+          >
+            ก+
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Title (H1: 28px–34px Bold) -->
+      <h1 class="font-prompt text-[1.75rem] sm:text-[2.125rem] font-bold tracking-tight text-white leading-tight">
+        Pre-ACHA and <span class="text-transparent bg-clip-text bg-gradient-to-r from-goldbrand-200 via-goldbrand-400 to-amber-200">ACHA 28th</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="font-prompt text-base sm:text-lg font-medium text-medblue-100 mt-2 leading-relaxed">
+        กำหนดการเดินทางและเข้าร่วมประชุม • 24 – 29 พฤศจิกายน 2026 • ไต้หวัน
+      </p>
+
+      <!-- Route & Usage Hint -->
+      <div class="mt-4 pt-4 border-t border-white/15 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5">
+        <span class="inline-flex items-center gap-2 text-sm sm:text-base text-slate-100 font-medium">
+          <i class="fa-solid fa-location-dot text-goldbrand-400"></i>
+          <span>เถาหยวน • เจียอี้ • อาลีซาน • ไถหนาน • ไทจง</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 text-sm font-prompt text-goldbrand-200">
+          <i class="fa-solid fa-hand-pointer text-goldbrand-400"></i>
+          <span>แตะวันที่เพื่อดูกำหนดการและบันทึก JPG</span>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="flex-1 max-w-3xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
+
+    <!-- Section Header -->
+    <div class="mb-4">
+      <h2 class="font-prompt text-xl sm:text-2xl font-bold text-navy-900 flex items-center gap-2.5">
+        <i class="fa-solid fa-calendar-days text-medblue-600"></i>
+        <span>เลือกวันที่เดินทางและประชุม</span>
+      </h2>
+      <p class="text-base text-slate-600 mt-1">
+        กดเลือกวันที่เพื่อเปิดดูกำหนดการรายชั่วโมง การแต่งกาย หรือกดปุ่ม <strong>JPG</strong> เพื่อบันทึกรูปภาพเก็บไว้ในเครื่อง
+      </p>
+    </div>
+
+    <!-- Filter Pills Bar -->
+    <div class="mb-7 flex flex-wrap gap-2" role="tablist" aria-label="ตัวกรองช่วงกิจกรรม">
+      <button type="button" data-filter="all" class="filter-btn px-4 py-2.5 rounded-2xl text-sm sm:text-base font-prompt font-semibold transition-all bg-navy-900 text-white shadow-sm min-h-[44px]">
+        ทั้งหมด (6 วัน)
+      </button>
+      <button type="button" data-filter="pre" class="filter-btn px-4 py-2.5 rounded-2xl text-sm sm:text-base font-prompt font-medium transition-all bg-white text-slate-700 border border-slate-200 hover:border-medblue-500 hover:text-navy-900 min-h-[44px]">
+        Pre-ACHA (24–26 พ.ย.)
+      </button>
+      <button type="button" data-filter="acha" class="filter-btn px-4 py-2.5 rounded-2xl text-sm sm:text-base font-prompt font-medium transition-all bg-white text-slate-700 border border-slate-200 hover:border-medblue-500 hover:text-navy-900 min-h-[44px]">
+        ACHA 28th (26–28 พ.ย.)
+      </button>
+      <button type="button" data-filter="taichung" class="filter-btn px-4 py-2.5 rounded-2xl text-sm sm:text-base font-prompt font-medium transition-all bg-white text-slate-700 border border-slate-200 hover:border-taichung-600 hover:text-taichung-700 min-h-[44px]">
+        ไทจง (29 พ.ย.)
+      </button>
+    </div>
+
+    <!-- Vertical Bullet Timeline Container -->
+    <div class="relative">
+      <!-- Connecting Vertical Spine aligned with Left Circular Date Bullets -->
+      <div class="pointer-events-none absolute left-[1.75rem] sm:left-[2rem] top-8 bottom-8 w-1 bg-gradient-to-b from-medblue-500 via-goldbrand-400 to-taichung-600 rounded-full opacity-80"></div>
+
+      <!-- Bullet List Items (Injected via JS) -->
+      <ul id="dateBulletList" class="space-y-5 sm:space-y-6" role="list">
+        <!-- Rendered dynamically -->
+      </ul>
+    </div>
+
+    <!-- Helpful Participant Guide Card -->
+    <section class="mt-9 bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-card flex items-start gap-4">
+      <div class="w-12 h-12 rounded-2xl bg-goldbrand-50 border border-goldbrand-200 text-goldbrand-600 flex items-center justify-center shrink-0 mt-0.5">
+        <i class="fa-solid fa-shirt text-xl"></i>
+      </div>
+      <div>
+        <h3 class="font-prompt text-lg font-bold text-navy-900">
+          คำแนะนำสำหรับผู้เข้าร่วมประชุม
+        </h3>
+        <p class="text-base text-slate-700 mt-1.5 leading-relaxed">
+          กำหนดการนี้ออกแบบเฉพาะสำหรับผู้เข้าร่วมประชุมทั่วไป (ไม่แสดงภารกิจฝ่ายประสานงาน) ท่านสามารถกดปุ่ม <span class="font-semibold text-navy-900">ก- / ก+</span> ด้านบนเพื่อปรับขนาดตัวอักษรได้ตามต้องการ และกดปุ่ม <span class="font-semibold text-medblue-700">บันทึกภาพ (JPG)</span> เพื่อเก็บกำหนดการแต่ละวันไว้ดูออฟไลน์หรือส่งต่อในกลุ่ม LINE ได้ทันทีครับ
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="max-w-3xl w-full mx-auto px-4 sm:px-6 py-7 text-center text-sm text-slate-500 border-t border-slate-200/80">
+    <p class="font-prompt font-semibold text-navy-900">Pre-ACHA &amp; The 28th Asian Christian Hospital Association (ACHA) Convention</p>
+    <p class="mt-1">24 – 29 พฤศจิกายน 2026 • ไต้หวัน (Chiayi • Alishan • Tainan • Taichung)</p>
+  </footer>
+
+  <!-- ==================== DAILY SCHEDULE MODAL / MOBILE BOTTOM SHEET ==================== -->
+  <div id="scheduleModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <!-- Backdrop Overlay -->
+    <div id="modalBackdrop" class="fixed inset-0 bg-navy-950/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+    <!-- Modal / Bottom Sheet Panel -->
+    <div id="modalPanel" class="relative z-10 w-full sm:max-w-2xl bg-white rounded-t-3xl sm:rounded-3xl shadow-sheet max-h-[92vh] sm:max-h-[88vh] flex flex-col overflow-hidden transform translate-y-full sm:translate-y-6 sm:scale-95 opacity-0 transition-all duration-300 ease-out">
+
+      <!-- Mobile Drag Handle -->
+      <div id="sheetDragHandle" class="sm:hidden pt-3 pb-1.5 flex justify-center bg-navy-950 cursor-grab active:cursor-grabbing">
+        <span class="w-12 h-1.5 rounded-full bg-white/35"></span>
+      </div>
+
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-navy-950 via-navy-900 to-medblue-800 text-white px-5 py-4 sm:px-6 sm:py-5 shrink-0 border-b-2 border-goldbrand-400">
+        <div class="flex items-start justify-between gap-3">
+          <div class="space-y-1.5">
+            <!-- Badges Row -->
+            <div class="flex flex-wrap items-center gap-2">
+              <span id="modalDayBadge" class="px-3 py-0.5 rounded-full text-sm font-prompt font-bold bg-goldbrand-400 text-navy-950">
+                วันที่ 1
+              </span>
+              <span id="modalPhaseBadge" class="px-3 py-0.5 rounded-full text-sm font-prompt font-medium bg-white/15 text-medblue-100 border border-white/25">
+                Pre-ACHA
+              </span>
+            </div>
+
+            <!-- Full Thai Date -->
+            <p id="modalDateFull" class="font-prompt text-base sm:text-lg text-goldbrand-200 font-semibold pt-0.5">
+              วันอังคารที่ 24 พฤศจิกายน 2026
+            </p>
+
+            <!-- Day Title -->
+            <h3 id="modalTitle" class="font-prompt text-xl sm:text-2xl font-bold text-white leading-snug">
+              เดินทางสู่ไต้หวัน
+            </h3>
+
+            <!-- City / Location -->
+            <p id="modalLocationBadge" class="inline-flex items-center gap-1.5 text-sm sm:text-base font-prompt text-medblue-100">
+              <i class="fa-solid fa-location-dot text-goldbrand-400"></i>
+              <span>กรุงเทพฯ – เถาหยวน – เจียอี้</span>
+            </p>
+          </div>
+
+          <!-- Close Button (Large Touch Target) -->
+          <button
+            type="button"
+            id="closeModalBtn"
+            aria-label="ปิดหน้าต่าง"
+            class="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 active:scale-95 text-white flex items-center justify-center transition-all shrink-0 mt-0.5"
+          >
+            <i class="fa-solid fa-xmark text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Body Content -->
+      <div id="modalBodyScroll" class="flex-1 overflow-y-auto overscroll-contain px-4 py-5 sm:px-6 sm:py-6 space-y-6 bg-slate-50">
+
+        <!-- Dress Code Highlight Box (16px–18px Bold & Clear) -->
+        <section aria-label="การแต่งกายประจำวัน" class="rounded-2xl bg-gradient-to-br from-goldbrand-50 via-amber-50 to-orange-50/70 border-2 border-goldbrand-300/90 p-4 sm:p-5 shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-11 h-11 rounded-xl bg-goldbrand-500 text-white flex items-center justify-center shadow-sm shrink-0">
+              <i class="fa-solid fa-shirt text-lg"></i>
+            </div>
+            <div>
+              <h4 class="font-prompt text-lg font-bold text-navy-900">
+                การแต่งกายประจำวัน (Dress Code)
+              </h4>
+              <p class="text-sm font-prompt text-goldbrand-700 font-medium">
+                คำแนะนำตามลักษณะกิจกรรมตลอดวัน
+              </p>
+            </div>
+          </div>
+
+          <div id="modalDressCodeContent" class="text-base sm:text-[1.125rem] text-slate-800 leading-[1.65]">
+            <!-- Rendered dynamically -->
+          </div>
+        </section>
+
+        <!-- Daily Timeline Schedule Section -->
+        <section aria-label="ตารางกิจกรรมประจำวัน">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <h4 class="font-prompt text-lg sm:text-xl font-bold text-navy-900 flex items-center gap-2">
+              <i class="fa-regular fa-clock text-medblue-600"></i>
+              <span>กำหนดการรายชั่วโมง</span>
+            </h4>
+            <span id="modalSessionCount" class="text-sm font-prompt font-medium text-navy-800 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-2xs">
+              6 ช่วงเวลา
+            </span>
+          </div>
+
+          <!-- Vertical Timeline List -->
+          <div id="modalTimelineList" class="relative pl-5 space-y-4 before:content-[''] before:absolute before:left-[7px] before:top-4 before:bottom-4 before:w-0.5 before:bg-medblue-200">
+            <!-- Rendered dynamically -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sticky Footer Toolbar: Export JPG + Day Prev/Next -->
+      <div class="shrink-0 bg-white border-t border-slate-200 px-4 py-3.5 sm:px-6 sm:py-4 space-y-3">
+        <!-- Prominent Export JPG Button -->
+        <button
+          type="button"
+          id="modalExportJpgBtn"
+          class="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-2xl text-base sm:text-lg font-prompt font-bold text-navy-950 bg-gradient-to-r from-goldbrand-300 via-goldbrand-400 to-amber-400 hover:from-goldbrand-400 hover:to-amber-500 active:scale-[0.985] disabled:opacity-60 transition-all shadow-md min-h-[50px]"
+        >
+          <i id="modalExportIcon" class="fa-solid fa-file-image text-lg"></i>
+          <span id="modalExportLabel">บันทึกเป็นภาพ (Export JPG)</span>
+        </button>
+
+        <!-- Prev / Indicator / Next Row -->
+        <div class="flex items-center justify-between gap-2">
+          <button
+            type="button"
+            id="prevDayBtn"
+            class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm sm:text-base font-prompt font-semibold text-navy-900 bg-slate-100 hover:bg-slate-200 disabled:opacity-40 disabled:pointer-events-none transition-all min-h-[44px]"
+          >
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+            <span>วันก่อนหน้า</span>
+          </button>
+
+          <span id="modalPageIndicator" class="text-sm sm:text-base font-prompt font-bold text-slate-600">
+            วันที่ 1 / 6
+          </span>
+
+          <button
+            type="button"
+            id="nextDayBtn"
+            class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm sm:text-base font-prompt font-semibold text-white bg-medblue-600 hover:bg-medblue-700 disabled:opacity-40 disabled:pointer-events-none transition-all shadow-xs min-h-[44px]"
+          >
+            <span>วันถัดไป</span>
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== EXPORT PREVIEW / FALLBACK MODAL (FOR MOBILE / IN-APP BROWSERS) ==================== -->
+  <div id="exportPreviewModal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="exportPreviewTitle">
+    <div id="exportPreviewBackdrop" class="fixed inset-0 bg-navy-950/75 backdrop-blur-sm"></div>
+    <div class="relative z-10 w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <div class="bg-navy-900 text-white px-5 py-4 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <i class="fa-solid fa-image text-goldbrand-400 text-lg"></i>
+          <h3 id="exportPreviewTitle" class="font-prompt text-lg font-bold">ภาพกำหนดการพร้อมบันทึก</h3>
+        </div>
+        <button type="button" id="closeExportPreviewBtn" aria-label="ปิดตัวอย่างภาพ" class="w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+      <div class="p-4 overflow-y-auto bg-slate-100 flex-1 text-center">
+        <p class="text-sm sm:text-base text-slate-700 font-medium mb-3 bg-goldbrand-50 border border-goldbrand-200 rounded-xl p-2.5">
+          <i class="fa-solid fa-circle-info text-goldbrand-600 mr-1"></i>
+          หากไม่ได้ดาวน์โหลดอัตโนมัติ ให้กดปุ่มด้านล่าง หรือ<strong>แตะค้างที่รูปภาพ</strong>เพื่อบันทึกลงเครื่อง
+        </p>
+        <img id="exportPreviewImg" src="" alt="ตัวอย่างภาพกำหนดการ JPG" class="w-full h-auto rounded-2xl shadow-md border border-slate-200 mx-auto" />
+      </div>
+      <div class="p-4 bg-white border-t border-slate-200 flex items-center justify-end gap-2.5">
+        <button type="button" id="closeExportPreviewBtn2" class="px-4 py-2.5 rounded-xl text-base font-prompt font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 min-h-[44px]">
+          ปิด
+        </button>
+        <a id="exportFallbackDownloadLink" href="#" download="Schedule.jpg" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-base font-prompt font-bold text-white bg-medblue-600 hover:bg-medblue-700 shadow-sm min-h-[44px]">
+          <i class="fa-solid fa-download"></i>
+          <span>ดาวน์โหลดไฟล์ JPG</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toastContainer" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[70] w-[calc(100%-2rem)] max-w-md pointer-events-none opacity-0 translate-y-4 transition-all duration-300">
+    <div class="pointer-events-auto bg-navy-950 text-white rounded-2xl px-4 py-3.5 shadow-2xl border border-goldbrand-400/40 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <span id="toastIconWrap" class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+          <i id="toastIcon" class="fa-solid fa-circle-check text-lg"></i>
+        </span>
+        <div class="min-w-0">
+          <p id="toastTitle" class="font-prompt text-sm sm:text-base font-semibold text-white truncate">
+            บันทึกภาพเรียบร้อยแล้ว
+          </p>
+          <p id="toastSub" class="text-xs sm:text-sm text-slate-300 truncate">
+            Schedule-2026-11-24.jpg
+          </p>
+        </div>
+      </div>
+      <button type="button" id="toastPreviewBtn" class="hidden shrink-0 px-3 py-1.5 rounded-xl bg-goldbrand-400 text-navy-950 font-prompt text-xs sm:text-sm font-bold hover:bg-goldbrand-300 transition-colors">
+        ดูภาพ
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== OFF-SCREEN POSTER STAGE FOR JPG EXPORT (FIXED 760PX) ==================== -->
+  <div id="exportPosterStage" aria-hidden="true" class="fixed -left-[9999px] top-0 w-[760px] bg-white text-slate-800 font-sarabun pointer-events-none">
+    <!-- Export poster DOM injected dynamically right before html2canvas capture -->
+  </div>
+
+  <!-- ==================== JAVASCRIPT: DATA, UI & JPG EXPORT ==================== -->
+  <script>
+    /**
+     * Complete 6-Day Schedule Dataset (24 - 29 November 2026)
+     * Tailored for conference participants (no staff/logistics duties)
+     */
+    const scheduleData = [
+      {
+        id: 0,
+        isoDate: '2026-11-24',
+        dayNum: '24',
+        monthShort: 'พ.ย.',
+        dayLabel: 'วันที่ 1',
+        dateFull: 'วันอังคารที่ 24 พฤศจิกายน 2026',
+        phase: 'Pre-ACHA',
+        phaseCategory: 'pre',
+        locationBadge: 'เถาหยวน – เจียอี้',
+        locationFull: 'กรุงเทพฯ – เถาหยวน – เจียอี้ (Chiayi)',
+        title: 'เดินทางสู่ไต้หวัน (กรุงเทพฯ – เถาหยวน – เจียอี้)',
+        dressCodeSummary: 'ชุดเดินทางสุภาพ คล่องตัว พร้อมเสื้อคลุม/แจ็กเก็ต',
+        dressCode: [
+          'ชุดเดินทางที่สุภาพ คล่องตัว และสวมใส่สบาย พร้อมเสื้อคลุมหรือแจ็กเก็ตสำหรับสวมบนเครื่องบินและกันลมช่วงเย็น'
+        ],
+        timeline: [
+          {
+            time: '05.30 – 06.30 น.',
+            activity: 'ออกเดินทางจากโรงพยาบาลไปยังสนามบิน',
+            icon: 'fa-van-shuttle'
+          },
+          {
+            time: '08.15 – 12.45 น.',
+            activity: 'เดินทางสู่ไต้หวัน โดยเที่ยวบิน TG0632',
+            detail: '(ระบุเที่ยวบิน FD242/TG632 ในกำหนดการเครือข่าย)',
+            icon: 'fa-plane-departure'
+          },
+          {
+            time: '12.45 – 13.30 น.',
+            activity: 'รับกระเป๋าสัมภาระ และผ่านด่านตรวจคนเข้าเมือง (ตม.)',
+            icon: 'fa-passport'
+          },
+          {
+            time: '13.30 – 16.30 น.',
+            activity: 'เดินทางด้วยรถประจำทางจากเถาหยวน (Taoyuan) ไปยังเมืองเจียอี้ (Chiayi)',
+            icon: 'fa-bus'
+          },
+          {
+            time: '16.30 – 17.00 น.',
+            activity: 'เช็กอินเข้าที่พัก',
+            venue: 'โรงแรม Hsin Hotel',
+            icon: 'fa-hotel'
+          },
+          {
+            time: '17.00 น. เป็นต้นไป',
+            activity: 'รับประทานอาหารเย็น และพักผ่อนตามอัธยาศัย',
+            detail: 'มีบริการอาหารกล่องสำหรับผู้เข้าร่วมคณะ',
+            icon: 'fa-utensils'
+          }
+        ]
+      },
+      {
+        id: 1,
+        isoDate: '2026-11-25',
+        dayNum: '25',
+        monthShort: 'พ.ย.',
+        dayLabel: 'วันที่ 2',
+        dateFull: 'วันพุธที่ 25 พฤศจิกายน 2026',
+        phase: 'Pre-ACHA',
+        phaseCategory: 'pre',
+        locationBadge: 'อาลีซาน (Alishan)',
+        locationFull: 'เจียอี้ – อาลีซาน (Alishan)',
+        title: 'ศึกษาดูงานและท่องเที่ยวอาลีซาน (Alishan)',
+        dressCodeSummary: 'ชุดลำลองสุภาพ สวมเสื้อกันหนาว และรองเท้าผ้าใบ',
+        dressCode: [
+          'ชุดลำลองสุภาพสำหรับเดินศึกษาดูงานและท่องเที่ยวธรรมชาติ สวมเสื้อกันหนาว (อาลีซานอยู่บนพื้นที่สูงและอากาศหนาวเย็น) และรองเท้าผ้าใบหรือรองเท้าที่เดินสะดวก'
+        ],
+        timeline: [
+          {
+            time: '08.00 น.',
+            activity: 'รวมตัวกันที่ล็อบบี้โรงแรม',
+            venue: 'โรงแรม Hsin Hotel',
+            icon: 'fa-users'
+          },
+          {
+            time: '08.00 – 09.30 น.',
+            activity: 'เดินทางจากตัวเมืองเจียอี้ไปยังอาลีซาน (Alishan)',
+            icon: 'fa-bus'
+          },
+          {
+            time: '09.30 – 16.00 น.',
+            activity: 'เยี่ยมชมและท่องเที่ยวอาลีซาน',
+            detail: 'ศึกษาดูงานบริการสุขภาพชนเผ่าของ รพ.คริสเตียนเจียอี้ (CYCH) และอุทยานวัฒนธรรมชนพื้นเมือง',
+            icon: 'fa-mountain-sun'
+          },
+          {
+            time: '16.00 – 17.30 น.',
+            activity: 'เดินทางกลับโรงแรม',
+            venue: 'โรงแรม Hsin Hotel',
+            icon: 'fa-bus'
+          },
+          {
+            time: '18.30 – 20.30 น.',
+            activity: 'รับประทานอาหารค่ำ (Dinner)',
+            icon: 'fa-utensils'
+          }
+        ]
+      },
+      {
+        id: 2,
+        isoDate: '2026-11-26',
+        dayNum: '26',
+        monthShort: 'พ.ย.',
+        dayLabel: 'วันที่ 3',
+        dateFull: 'วันพฤหัสบดีที่ 26 พฤศจิกายน 2026',
+        phase: 'Pre-ACHA & ACHA 28th',
+        phaseCategory: 'both',
+        locationBadge: 'เจียอี้ – ไถหนาน',
+        locationFull: 'เจียอี้ (Chiayi) – ไถหนาน (Tainan)',
+        title: 'ประชุมนานาชาติ (Chiayi) และพิธีเปิดงาน ACHA ครั้งที่ 28 (Tainan)',
+        dressCodeSummary: 'ชุดสุภาพทางการ (Business Attire / สูท / ชุดองค์กร)',
+        dressCode: [
+          'ชุดสุภาพทางการ (Business Attire / สูทสากล หรือชุดประจำองค์กร) สำหรับเข้าร่วมการประชุมวิชาการนานาชาติ พิธีเปิดงาน ถ่ายภาพหมู่ และงานเลี้ยงต้อนรับ (Welcome Banquet) ในช่วงค่ำ'
+        ],
+        timeline: [
+          {
+            time: '08.00 น.',
+            activity: 'รวมตัวกันที่ล็อบบี้โรงแรม',
+            venue: 'โรงแรม Hsin Hotel',
+            icon: 'fa-users'
+          },
+          {
+            time: '08.30 – 12.30 น.',
+            activity: 'การประชุมนานาชาติ (International Conference)',
+            icon: 'fa-microphone-lines',
+            subItems: [
+              { label: '08.30–08.40 น.', text: 'กล่าวต้อนรับ (Welcome Address)' },
+              { label: '08.40–09.55 น.', text: 'นำเสนอ: รพ.คริสเตียนเจียอี้ (ไต้หวัน), รพ.แมคคอร์มิค, ศูนย์/รพ.ผู้สูงอายุแมคเคน, รพ.แพร่คริสเตียน และ รพ.แวนแซนต์วูร์ด' },
+              { label: '09.55–10.10 น.', text: 'พักเบรก' },
+              { label: '10.10–11.10 น.', text: 'นำเสนอ: รพ.กรุงเทพคริสเตียน, รพ.โอเวอร์บรุ๊ค, รพ.คริสเตียนสังขละบุรี และ Presbyterian Medical Center (เกาหลีใต้)' },
+              { label: '11.10–11.40 น.', text: 'อภิปรายทั่วไป (General Discussion)' },
+              { label: '11.40–12.30 น.', text: 'รับประทานอาหารกลางวัน' }
+            ]
+          },
+          {
+            time: '12.30 – 14.00 น.',
+            activity: 'ออกเดินทางจากเมืองเจียอี้ (Chiayi) ไปยังโรงแรม Silks Place เมืองไถหนาน (Tainan)',
+            icon: 'fa-bus'
+          },
+          {
+            time: '14.30 – 15.00 น.',
+            activity: 'งานแถลงข่าวความริเริ่มด้านความยั่งยืน ESG',
+            venue: 'หน้าห้อง 2F Ballroom III',
+            icon: 'fa-newspaper'
+          },
+          {
+            time: '15.00 น.',
+            activity: 'ลงทะเบียนเข้าร่วมงานประชุม ACHA ครั้งที่ 28 และเช็กอินเข้าที่พัก',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-id-badge'
+          },
+          {
+            time: '15.30 น.',
+            activity: 'พิธีเปิดงานประชุม (Opening Ceremony) อธิษฐานเปิดและกล่าวต้อนรับ',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-award'
+          },
+          {
+            time: '16.00 น.',
+            activity: 'ถ่ายภาพหมู่ร่วมกันของผู้เข้าร่วมประชุมทั้งหมด',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-camera'
+          },
+          {
+            time: '16.05 น.',
+            activity: 'นมัสการเปิดการประชุม (Opening Worship Service)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-hands-praying'
+          },
+          {
+            time: '16.45 – 18.00 น.',
+            activity: 'ปาฐกถาพิเศษ (Keynote Address)',
+            detail: 'หัวข้อ "Toward Integrated Care: From ESG to Holistic Gospel Healthcare" โดย Prof. Jyh-Hong Chen',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-chalkboard-user'
+          },
+          {
+            time: '19.00 น.',
+            activity: 'งานเลี้ยงต้อนรับ (Welcome Banquet)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-champagne-glasses'
+          },
+          {
+            time: '21.00 น.',
+            activity: 'การประชุมผู้แทนประเทศสมาชิก ACHA',
+            detail: '(เฉพาะผู้แทนประเทศสมาชิก)',
+            venue: 'ห้อง 2F Grand Banquet Hall',
+            icon: 'fa-handshake'
+          }
+        ]
+      },
+      {
+        id: 3,
+        isoDate: '2026-11-27',
+        dayNum: '27',
+        monthShort: 'พ.ย.',
+        dayLabel: 'วันที่ 4',
+        dateFull: 'วันศุกร์ที่ 27 พฤศจิกายน 2026',
+        phase: 'ACHA 28th',
+        phaseCategory: 'acha',
+        locationBadge: 'ไถหนาน (Tainan)',
+        locationFull: 'โรงแรม Silks Place ไถหนาน (Tainan)',
+        title: 'การประชุมวิชาการ ACHA วันที่ 2 และทัศนศึกษาเมืองไถหนาน',
+        dressCodeSummary: 'เช้า: สูททางการ | บ่าย: ลำลองสุภาพ | ค่ำ: กึ่งทางการ/ชุดไทย',
+        dressCode: [
+          { period: 'ช่วงเช้า (ประชุมวิชาการ)', detail: 'ชุดสุภาพทางการ (Business Attire / สูทสากล หรือชุดประจำองค์กร)' },
+          { period: 'ช่วงบ่าย (Optional City Tour)', detail: 'ชุดลำลองสุภาพและรองเท้าที่เดินสะดวกสำหรับชมเมือง' },
+          { period: 'ช่วงค่ำ (Fellowship Banquet)', detail: 'ชุดสุภาพกึ่งทางการ หรือชุดประจำชาติ/ชุดไทย สำหรับงานเลี้ยงสังสรรค์และการแสดงวัฒนธรรม' }
+        ],
+        timeline: [
+          {
+            time: '07.00 น.',
+            activity: 'รับประทานอาหารเช้า',
+            detail: 'เปิดบริการเวลา 06.30 – 10.30 น.',
+            venue: "ห้องอาหาร 1F Robin's",
+            icon: 'fa-mug-saucer'
+          },
+          {
+            time: '08.30 น.',
+            activity: 'นมัสการเช้า (Morning Devotion)',
+            detail: 'นำโดย Rev. Kyoko Hamamoto (Yodogawa Christian Hospital)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-hands-praying'
+          },
+          {
+            time: '09.00 น.',
+            activity: 'การเสวนาช่วงที่ 1 (Forum I)',
+            detail: 'หัวข้อ "Faith in God - Governance and Leadership in an Era of Polarization" (วิทยากรหลัก: Dr. Dae Hee Lee / ผู้ร่วมอภิปราย: นพ.สุวิทย์ ธีรกุลชน และ Rev. Shinichi Tagami)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-comments'
+          },
+          {
+            time: '10.20 น.',
+            activity: 'พักรับประทานอาหารว่างและสามัคคีธรรม (Coffee Break & Fellowship)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-mug-hot'
+          },
+          {
+            time: '10.40 น.',
+            activity: 'การเสวนาช่วงที่ 2 (Forum II)',
+            detail: 'หัวข้อ "Love for People - Social Gospel Responsibility and Medical Care for Marginalized Groups" (วิทยากรหลัก: นพ.รักษ์ พรหมปาลิต รพ.คริสเตียนสังขละบุรี / ผู้ร่วมอภิปราย: Dr. Mitsue Maru และ Dr. Wen-Han Chang)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-heart-pulse'
+          },
+          {
+            time: '12.00 น.',
+            activity: 'รับประทานอาหารกลางวันสามัคคีธรรม (Fellowship Lunch)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-utensils'
+          },
+          {
+            time: '13.30 น.',
+            activity: 'ทัวร์ชมเมืองตามอัธยาศัย (Optional City Tour - เลือกได้ 2 เส้นทาง)',
+            icon: 'fa-map-location-dot',
+            subItems: [
+              { label: 'เส้นทางที่ 1', text: 'ตามรอยมิชชันนารีเมืองไถหนาน: รพ.ซินโหลว (Sin-Lau Hospital), วิทยาลัยและเซมินารีศาสนศาสตร์ไถหนาน และคริสตจักรอนุสรณ์แมกซ์เวลล์' },
+              { label: 'เส้นทางที่ 2', text: 'พิพิธภัณฑ์ฉีเหม่ย (Chimei Museum): ชมนิทรรศการพิเศษ "Pharaoh: King of Egypt" จาก British Museum' }
+            ]
+          },
+          {
+            time: '18.00 น.',
+            activity: 'งานเลี้ยงสังสรรค์ (Fellowship Banquet / Gala Dinner)',
+            detail: 'ชมการแสดงวัฒนธรรมจาก 4 ประเทศ (ไต้หวัน, เกาหลีใต้, ญี่ปุ่น และไทย ประเทศละ 15 นาที)',
+            venue: 'ห้อง 2F Ballroom II & Ballroom III',
+            icon: 'fa-music'
+          }
+        ]
+      },
+      {
+        id: 4,
+        isoDate: '2026-11-28',
+        dayNum: '28',
+        monthShort: 'พ.ย.',
+        dayLabel: 'วันที่ 5',
+        dateFull: 'วันเสาร์ที่ 28 พฤศจิกายน 2026',
+        phase: 'ACHA 28th',
+        phaseCategory: 'acha',
+        locationBadge: 'ไถหนาน – เถาหยวน / ไทจง',
+        locationFull: 'ไถหนาน (Tainan) – เถาหยวน / ไทจง',
+        title: 'ปิดการประชุม ACHA พิธีส่งมอบธงเจ้าภาพ และเดินทาง (ไถหนาน – เถาหยวน / ไทจง)',
+        dressCodeSummary: 'ชุดสุภาพทางการ (สูท/ชุดองค์กร) + เตรียมเสื้อคลุมสำหรับเดินทางช่วงบ่าย',
+        dressCode: [
+          'ชุดสุภาพทางการ (Business Attire / สูทสากล หรือชุดประจำองค์กร) สำหรับเข้าร่วมการเสวนา พิธีปิด และพิธีส่งมอบธงเจ้าภาพ (สามารถเตรียมเสื้อคลุมหรือชุดที่คล่องตัวสำหรับเดินทางช่วงบ่าย)'
+        ],
+        timeline: [
+          {
+            time: '07.00 น.',
+            activity: 'รับประทานอาหารเช้า',
+            detail: 'เปิดบริการเวลา 06.30 – 10.30 น.',
+            venue: "ห้องอาหาร 1F Robin's",
+            icon: 'fa-mug-saucer'
+          },
+          {
+            time: '08.30 น.',
+            activity: 'นมัสการเช้า (Morning Devotion)',
+            detail: 'นำโดย Rev. Byung Woo Choi (SAM Medical Center)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-hands-praying'
+          },
+          {
+            time: '09.00 น.',
+            activity: 'การเสวนาช่วงที่ 3 (Forum III)',
+            detail: 'หัวข้อ "Hope for the Land — Environmental Sustainability Practices of Christian Hospitals" (ผู้ดำเนินการเสวนา: คุณวริทธิ์ อนุชิราชีวะ / วิทยากรหลัก: Dr. Makoto Nabetani / ผู้ร่วมอภิปราย: Dr. Chi-Chun Chou และ Dr. Dae Young Lee)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-leaf'
+          },
+          {
+            time: '10.20 น.',
+            activity: 'พักรับประทานอาหารว่างและสามัคคีธรรม (Coffee Break & Fellowship)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-mug-hot'
+          },
+          {
+            time: '10.40 น.',
+            activity: 'พิธีนมัสการปิดการประชุม (Closing Worship Service - นำโดยประเทศไทย)',
+            detail: 'นำโดย ศจ.ดร.ศิริรัตน์ ปุสุรินทร์คำ (ประธานกรรมการ รพ.โอเวอร์บรุ๊ค)',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-hands-praying'
+          },
+          {
+            time: '11.15 น.',
+            activity: 'พิธีส่งมอบธงเจ้าภาพการจัดงาน (Host Country Handover Ceremony)',
+            detail: 'ส่งมอบจากไต้หวันสู่ประเทศไทย โดย Dr. Chi-Chu Liu และ นพ.มาโนชญ์ เหล่าวงศ์',
+            venue: 'ห้อง 2F Ballroom I',
+            icon: 'fa-flag'
+          },
+          {
+            time: '11.30 น.',
+            activity: 'ปิดการประชุม (แล้วพบกันที่ประเทศไทยในปี 2028)',
+            icon: 'fa-circle-check'
+          },
+          {
+            time: '11.45 น.',
+            activity: 'ออกเดินทางพร้อมกันจากโรงแรม Silks Place Tainan (รับประทานอาหารกลางวันบนรถ)',
+            detail: 'แบ่งเส้นทางการเดินทางออกเป็น 2 กลุ่มอย่างชัดเจน:',
+            icon: 'fa-bus',
+            splitGroups: [
+              {
+                badge: 'กลุ่มแรก (คณะเดินทางกลับวันเสาร์)',
+                color: 'blue',
+                text: 'เดินทางตรงไปยังสนามบินนานาชาติเถาหยวน (Taoyuan Airport) เพื่อเดินทางกลับประเทศไทย'
+              },
+              {
+                badge: 'กลุ่มที่ 2 (คณะ 10 ท่าน เดินทางกลับวันอาทิตย์)',
+                color: 'purple',
+                text: 'เดินทางต่อไปยังเมืองไทจง (Taichung) และเช็กอินเข้าพักโรงแรม 1 คืน'
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: 5,
+        isoDate: '2026-11-29',
+        dayNum: '29',
+        monthShort: 'พ.ย.',
+        dayLabel: 'วันที่ 6',
+        dateFull: 'วันอาทิตย์ที่ 29 พฤศจิกายน 2026',
+        phase: 'คณะ 10 ท่าน (ไทจง)',
+        phaseCategory: 'taichung',
+        locationBadge: 'ไทจง – เถาหยวน',
+        locationFull: 'เมืองไทจง (Taichung) – สนามบินเถาหยวน',
+        title: 'ร่วมนมัสการที่เมืองไทจง และเดินทางกลับประเทศไทย (ไทจง – เถาหยวน)',
+        dressCodeSummary: 'ชุดสุภาพร่วมนมัสการวันอาทิตย์ + สวมใส่สบายพร้อมเสื้อคลุมเดินทาง',
+        dressCode: [
+          'ชุดสุภาพสำหรับร่วมพิธีนมัสการวันอาทิตย์ที่โบสถ์ และสวมใส่สบายคล่องตัวสำหรับการเดินทางโดยรถไฟฟ้าไปยังสนามบินและขึ้นเครื่องกลับประเทศไทย พร้อมเสื้อคลุมกันลม'
+        ],
+        timeline: [
+          {
+            time: '09.00 น.',
+            activity: 'เดินทางไปโบสถ์ในเมืองไทจง เพื่อร่วมพิธีนมัสการวันอาทิตย์ (Sunday Worship Service)',
+            venue: 'โบสถ์ในเมืองไทจง',
+            icon: 'fa-church'
+          },
+          {
+            time: 'ช่วงเที่ยง',
+            activity: 'รับประทานอาหารกลางวันร่วมกัน',
+            venue: 'เมืองไทจง',
+            icon: 'fa-utensils'
+          },
+          {
+            time: 'ช่วงบ่าย',
+            activity: 'เดินทางโดยรถไฟฟ้าจากเมืองไทจงไปยังสนามบินนานาชาติเถาหยวน (Taoyuan International Airport)',
+            detail: 'เช็กอินและเดินทางกลับประเทศไทยโดยสวัสดิภาพ',
+            venue: 'เมืองไทจง – สนามบินเถาหยวน',
+            icon: 'fa-train-subway'
+          }
+        ]
+      }
+    ];
+
+    // ==================== STATE ====================
+    let activeFilter = 'all';
+    let currentDayIndex = 0;
+    let isExporting = false;
+    let lastExportedDataUrl = '';
+    let lastExportedFilename = '';
+    let toastTimeout = null;
+
+    // Font Size Steps (Root html font-size in px; default 16px = 100%)
+    const fontSteps = [
+      { px: 15, label: '95%' },
+      { px: 16, label: '100%' },
+      { px: 17.5, label: '110%' },
+      { px: 19, label: '120%' }
+    ];
+    let currentFontStep = 1; // Starts at 16px (already generous font sizes in layout)
+
+    // ==================== DOM ELEMENTS ====================
+    const dateBulletList = document.getElementById('dateBulletList');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const fontDecreaseBtn = document.getElementById('fontDecreaseBtn');
+    const fontIncreaseBtn = document.getElementById('fontIncreaseBtn');
+    const fontSizeLabel = document.getElementById('fontSizeLabel');
+
+    // Daily Schedule Modal
+    const scheduleModal = document.getElementById('scheduleModal');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalPanel = document.getElementById('modalPanel');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const prevDayBtn = document.getElementById('prevDayBtn');
+    const nextDayBtn = document.getElementById('nextDayBtn');
+    const modalBodyScroll = document.getElementById('modalBodyScroll');
+    const sheetDragHandle = document.getElementById('sheetDragHandle');
+    const modalExportJpgBtn = document.getElementById('modalExportJpgBtn');
+    const modalExportIcon = document.getElementById('modalExportIcon');
+    const modalExportLabel = document.getElementById('modalExportLabel');
+
+    // Export Preview & Toast
+    const exportPosterStage = document.getElementById('exportPosterStage');
+    const exportPreviewModal = document.getElementById('exportPreviewModal');
+    const exportPreviewBackdrop = document.getElementById('exportPreviewBackdrop');
+    const exportPreviewImg = document.getElementById('exportPreviewImg');
+    const exportFallbackDownloadLink = document.getElementById('exportFallbackDownloadLink');
+    const closeExportPreviewBtn = document.getElementById('closeExportPreviewBtn');
+    const closeExportPreviewBtn2 = document.getElementById('closeExportPreviewBtn2');
+    const toastContainer = document.getElementById('toastContainer');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastSub = document.getElementById('toastSub');
+    const toastIcon = document.getElementById('toastIcon');
+    const toastIconWrap = document.getElementById('toastIconWrap');
+    const toastPreviewBtn = document.getElementById('toastPreviewBtn');
+
+    // ==================== FONT SIZE CONTROLLER (ก- / ก+) ====================
+    function applyFontStep(stepIndex) {
+      currentFontStep = Math.max(0, Math.min(fontSteps.length - 1, stepIndex));
+      const step = fontSteps[currentFontStep];
+      document.documentElement.style.fontSize = `${step.px}px`;
+      fontSizeLabel.textContent = step.label;
+      fontDecreaseBtn.disabled = currentFontStep === 0;
+      fontIncreaseBtn.disabled = currentFontStep === fontSteps.length - 1;
+    }
+
+    fontDecreaseBtn.addEventListener('click', () => applyFontStep(currentFontStep - 1));
+    fontIncreaseBtn.addEventListener('click', () => applyFontStep(currentFontStep + 1));
+
+    // ==================== THEME HELPERS ====================
+    function getPhaseTheme(category) {
+      if (category === 'pre') {
+        return {
+          circleBg: 'bg-gradient-to-br from-medblue-500 to-medblue-700 ring-medblue-100',
+          phasePill: 'bg-medblue-50 text-medblue-700 border-medblue-200',
+          hoverBorder: 'hover:border-medblue-500'
+        };
+      }
+      if (category === 'both') {
+        return {
+          circleBg: 'bg-gradient-to-br from-medblue-600 via-navy-800 to-goldbrand-500 ring-goldbrand-100',
+          phasePill: 'bg-goldbrand-50 text-goldbrand-700 border-goldbrand-300',
+          hoverBorder: 'hover:border-goldbrand-500'
+        };
+      }
+      if (category === 'taichung') {
+        return {
+          circleBg: 'bg-gradient-to-br from-taichung-600 to-navy-900 ring-taichung-100',
+          phasePill: 'bg-taichung-50 text-taichung-700 border-taichung-200',
+          hoverBorder: 'hover:border-taichung-600'
+        };
+      }
+      return {
+        circleBg: 'bg-gradient-to-br from-navy-800 to-navy-950 ring-blue-100',
+        phasePill: 'bg-navy-900/10 text-navy-900 border-navy-900/20',
+        hoverBorder: 'hover:border-navy-700'
+      };
+    }
+
+    // ==================== RENDER BULLET TIMELINE ====================
+    function renderBulletList() {
+      const filtered = scheduleData.filter((item) => {
+        if (activeFilter === 'all') return true;
+        if (activeFilter === 'pre') return item.phaseCategory === 'pre' || item.phaseCategory === 'both';
+        if (activeFilter === 'acha') return item.phaseCategory === 'acha' || item.phaseCategory === 'both';
+        if (activeFilter === 'taichung') return item.phaseCategory === 'taichung';
+        return true;
+      });
+
+      dateBulletList.innerHTML = filtered.map((day) => {
+        const theme = getPhaseTheme(day.phaseCategory);
+        return `
+          <li class="relative flex items-start gap-3.5 sm:gap-5 group">
+            <!-- Left Circular Date Bullet Badge -->
+            <button
+              type="button"
+              onclick="openScheduleModal(${day.id})"
+              aria-label="เปิดกำหนดการ ${day.dateFull}"
+              class="relative z-10 w-14 h-14 sm:w-16 sm:h-16 rounded-full ${theme.circleBg} ring-4 text-white flex flex-col items-center justify-center shrink-0 mt-2 shadow-md group-hover:scale-105 active:scale-95 transition-transform duration-200"
+            >
+              <span class="font-prompt text-xl sm:text-2xl font-bold leading-none">${day.dayNum}</span>
+              <span class="font-prompt text-[11px] sm:text-xs font-medium text-white/90 mt-0.5">${day.monthShort}</span>
+            </button>
+
+            <!-- Right Interactive Date Card -->
+            <div
+              role="button"
+              tabindex="0"
+              onclick="openScheduleModal(${day.id})"
+              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openScheduleModal(${day.id});}"
+              class="flex-1 min-w-0 bg-white rounded-3xl p-4 sm:p-5 border-2 border-slate-200/90 ${theme.hoverBorder} shadow-card hover:shadow-card-hover active:scale-[0.99] transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-medblue-500"
+            >
+              <!-- Top Tags Row -->
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="px-3 py-0.5 rounded-full text-xs sm:text-sm font-prompt font-semibold border ${theme.phasePill}">
+                    ${day.phase}
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs sm:text-sm font-prompt font-medium bg-slate-100 text-slate-700">
+                    <i class="fa-solid fa-location-dot text-medblue-600 text-xs"></i>
+                    <span>${day.locationBadge}</span>
+                  </span>
+                </div>
+
+                <!-- Quick JPG Export Shortcut Button -->
+                <button
+                  type="button"
+                  onclick="event.stopPropagation(); exportDayToJpg(${day.id}, this);"
+                  title="บันทึกกำหนดการวันนี้เป็นไฟล์ภาพ JPG"
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-prompt font-bold bg-goldbrand-50 text-goldbrand-700 border border-goldbrand-300 hover:bg-goldbrand-400 hover:text-navy-950 active:scale-95 transition-all min-h-[36px]"
+                >
+                  <i class="fa-solid fa-download text-xs"></i>
+                  <span>JPG</span>
+                </button>
+              </div>
+
+              <!-- Full Thai Date Heading (20px–22px Bold) -->
+              <h3 class="font-prompt text-[1.25rem] sm:text-[1.375rem] font-bold text-navy-900 group-hover:text-medblue-700 transition-colors leading-snug">
+                ${day.dateFull}
+              </h3>
+
+              <!-- Day Main Title & Route (16px–17px) -->
+              <p class="text-[1rem] sm:text-[1.0625rem] font-medium text-slate-700 mt-1.5 leading-relaxed">
+                ${day.title}
+              </p>
+
+              <!-- Dress Code Summary + Tap Indicator -->
+              <div class="mt-4 pt-3.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <div class="inline-flex items-start sm:items-center gap-2 text-[0.95rem] sm:text-base text-goldbrand-700 bg-goldbrand-50/95 border border-goldbrand-200 px-3 py-1.5 rounded-xl">
+                  <i class="fa-solid fa-shirt text-goldbrand-600 mt-1 sm:mt-0 shrink-0"></i>
+                  <span class="font-medium leading-snug">${day.dressCodeSummary}</span>
+                </div>
+
+                <span class="inline-flex items-center gap-1.5 text-sm sm:text-base font-prompt font-semibold text-medblue-600 group-hover:text-medblue-700 shrink-0 self-end sm:self-auto">
+                  <span>ดูกำหนดการ</span>
+                  <i class="fa-solid fa-circle-chevron-right text-base transition-transform duration-200 group-hover:translate-x-1"></i>
+                </span>
+              </div>
+            </div>
+          </li>
+        `;
+      }).join('');
+    }
+
+    // ==================== POPULATE DAILY MODAL ====================
+    function populateModal(index) {
+      const day = scheduleData[index];
+      if (!day) return;
+
+      currentDayIndex = index;
+
+      // Update Header Info
+      document.getElementById('modalDayBadge').textContent = day.dayLabel;
+      document.getElementById('modalPhaseBadge').textContent = day.phase;
+      document.getElementById('modalDateFull').textContent = day.dateFull;
+      document.getElementById('modalTitle').textContent = day.title;
+      document.getElementById('modalLocationBadge').innerHTML = `
+        <i class="fa-solid fa-location-dot text-goldbrand-400"></i>
+        <span>${day.locationFull}</span>
+      `;
+
+      // Update Dress Code Box
+      const dressCodeContainer = document.getElementById('modalDressCodeContent');
+      if (typeof day.dressCode[0] === 'string') {
+        dressCodeContainer.innerHTML = `<p class="font-medium text-slate-800">${day.dressCode[0]}</p>`;
+      } else {
+        dressCodeContainer.innerHTML = `
+          <ul class="space-y-2.5">
+            ${day.dressCode.map((item) => `
+              <li class="flex items-start gap-2.5 bg-white/85 rounded-xl p-3 border border-goldbrand-200">
+                <span class="w-2 h-2 rounded-full bg-goldbrand-500 mt-2.5 shrink-0"></span>
+                <div>
+                  <span class="font-prompt font-bold text-base text-goldbrand-700 block">${item.period}</span>
+                  <span class="text-base sm:text-[1.0625rem] text-slate-800 leading-relaxed">${item.detail}</span>
+                </div>
+              </li>
+            `).join('')}
+          </ul>
+        `;
+      }
+
+      // Update Session Count
+      document.getElementById('modalSessionCount').textContent = `${day.timeline.length} ช่วงเวลา`;
+
+      // Render Timeline Items (Time 17-18px Bold, Activity 18-19px Bold, Details/Venue 16-17px, line-height 1.65)
+      const timelineContainer = document.getElementById('modalTimelineList');
+      timelineContainer.innerHTML = day.timeline.map((slot) => {
+        const detailHtml = slot.detail
+          ? `<p class="mt-1.5 text-[1rem] sm:text-[1.0625rem] text-slate-700 leading-[1.65]">${slot.detail}</p>`
+          : '';
+
+        const venueHtml = slot.venue
+          ? `<div class="mt-2.5 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-medblue-50 text-medblue-700 border border-medblue-200 text-[0.95rem] sm:text-[1rem] font-prompt font-semibold">
+               <i class="fa-solid fa-location-dot text-medblue-600"></i>
+               <span>สถานที่: ${slot.venue}</span>
+             </div>`
+          : '';
+
+        const subItemsHtml = slot.subItems
+          ? `<ul class="mt-3 space-y-2.5 bg-slate-50 rounded-2xl p-3.5 border border-slate-200">
+               ${slot.subItems.map((sub) => `
+                 <li class="flex items-start gap-2.5 text-[1rem] sm:text-[1.0625rem] text-slate-700 leading-[1.65]">
+                   <span class="w-2 h-2 rounded-full bg-medblue-500 mt-2.5 shrink-0"></span>
+                   <div>
+                     <span class="font-prompt font-bold text-navy-900 mr-1.5">${sub.label}</span>
+                     <span>${sub.text}</span>
+                   </div>
+                 </li>
+               `).join('')}
+             </ul>`
+          : '';
+
+        const splitGroupsHtml = slot.splitGroups
+          ? `<div class="mt-3 space-y-2.5">
+               ${slot.splitGroups.map((grp) => {
+                 const cardStyles = grp.color === 'purple'
+                   ? 'bg-taichung-50 border-taichung-200 text-taichung-700'
+                   : 'bg-medblue-50 border-medblue-200 text-medblue-700';
+                 const badgeStyles = grp.color === 'purple'
+                   ? 'bg-taichung-600 text-white'
+                   : 'bg-medblue-600 text-white';
+                 return `
+                   <div class="rounded-2xl p-3.5 border-2 ${cardStyles}">
+                     <span class="inline-block px-3 py-0.5 rounded-full text-sm font-prompt font-bold ${badgeStyles} mb-1.5">
+                       ${grp.badge}
+                     </span>
+                     <p class="text-[1rem] sm:text-[1.0625rem] font-medium text-slate-800 leading-[1.65]">
+                       ${grp.text}
+                     </p>
+                   </div>
+                 `;
+               }).join('')}
+             </div>`
+          : '';
+
+        return `
+          <div class="relative bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/95 shadow-xs">
+            <!-- Timeline Node Dot -->
+            <span class="absolute -left-5 top-5 w-3.5 h-3.5 rounded-full bg-medblue-600 ring-4 ring-slate-50 shadow-2xs"></span>
+
+            <!-- Time Badge (17px–18px Bold) -->
+            <div class="mb-2">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-navy-900 text-white font-prompt text-[1.0625rem] sm:text-[1.125rem] font-bold tracking-wide">
+                <i class="fa-solid ${slot.icon || 'fa-clock'} text-goldbrand-400 text-sm"></i>
+                <span>${slot.time}</span>
+              </span>
+            </div>
+
+            <!-- Activity Title (18px–19px Bold) -->
+            <h5 class="font-prompt text-[1.125rem] sm:text-[1.1875rem] font-bold text-navy-900 leading-[1.5]">
+              ${slot.activity}
+            </h5>
+
+            ${detailHtml}
+            ${venueHtml}
+            ${subItemsHtml}
+            ${splitGroupsHtml}
+          </div>
+        `;
+      }).join('');
+
+      // Update Navigation Controls
+      document.getElementById('modalPageIndicator').textContent = `วันที่ ${index + 1} / ${scheduleData.length}`;
+      prevDayBtn.disabled = index === 0;
+      nextDayBtn.disabled = index === scheduleData.length - 1;
+
+      // Reset Scroll Position
+      modalBodyScroll.scrollTop = 0;
+    }
+
+    // ==================== OPEN & CLOSE MODAL ====================
+    function openScheduleModal(index) {
+      populateModal(index);
+
+      scheduleModal.classList.remove('hidden');
+      scheduleModal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+
+      requestAnimationFrame(() => {
+        modalBackdrop.classList.remove('opacity-0');
+        modalBackdrop.classList.add('opacity-100');
+        modalPanel.classList.remove('translate-y-full', 'sm:translate-y-6', 'sm:scale-95', 'opacity-0');
+        modalPanel.classList.add('translate-y-0', 'sm:translate-y-0', 'sm:scale-100', 'opacity-100');
+      });
+    }
+
+    function closeScheduleModal() {
+      modalBackdrop.classList.remove('opacity-100');
+      modalBackdrop.classList.add('opacity-0');
+      modalPanel.classList.remove('translate-y-0', 'sm:translate-y-0', 'sm:scale-100', 'opacity-100');
+      modalPanel.classList.add('translate-y-full', 'sm:translate-y-6', 'sm:scale-95', 'opacity-0');
+
+      setTimeout(() => {
+        scheduleModal.classList.add('hidden');
+        scheduleModal.classList.remove('flex');
+        document.body.classList.remove('overflow-hidden');
+        modalPanel.style.transform = '';
+      }, 280);
+    }
+
+    // ==================== TOAST & EXPORT PREVIEW HELPERS ====================
+    function showToast(title, subtitle, isError = false, showPreviewAction = false) {
+      toastTitle.textContent = title;
+      toastSub.textContent = subtitle;
+
+      if (isError) {
+        toastIconWrap.className = 'w-9 h-9 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0';
+        toastIcon.className = 'fa-solid fa-circle-exclamation text-lg';
+      } else {
+        toastIconWrap.className = 'w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0';
+        toastIcon.className = 'fa-solid fa-circle-check text-lg';
+      }
+
+      if (showPreviewAction && lastExportedDataUrl) {
+        toastPreviewBtn.classList.remove('hidden');
+      } else {
+        toastPreviewBtn.classList.add('hidden');
+      }
+
+      toastContainer.classList.remove('opacity-0', 'translate-y-4');
+      toastContainer.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toastContainer.classList.remove('opacity-100', 'translate-y-0');
+        toastContainer.classList.add('opacity-0', 'translate-y-4');
+      }, 6000);
+    }
+
+    function openExportPreviewModal() {
+      if (!lastExportedDataUrl) return;
+      exportPreviewImg.src = lastExportedDataUrl;
+      exportFallbackDownloadLink.href = lastExportedDataUrl;
+      exportFallbackDownloadLink.setAttribute('download', lastExportedFilename);
+      exportPreviewModal.classList.remove('hidden');
+      exportPreviewModal.classList.add('flex');
+    }
+
+    function closeExportPreviewModal() {
+      exportPreviewModal.classList.add('hidden');
+      exportPreviewModal.classList.remove('flex');
+    }
+
+    toastPreviewBtn.addEventListener('click', openExportPreviewModal);
+    closeExportPreviewBtn.addEventListener('click', closeExportPreviewModal);
+    closeExportPreviewBtn2.addEventListener('click', closeExportPreviewModal);
+    exportPreviewBackdrop.addEventListener('click', closeExportPreviewModal);
+
+    // ==================== BUILD CLEAN OFF-SCREEN POSTER FOR JPG EXPORT ====================
+    function buildExportPosterHTML(day) {
+      const dressCodeHtml = typeof day.dressCode[0] === 'string'
+        ? `<p style="font-size:18px; line-height:1.65; color:#1E293B; margin:0; font-weight:500;">${day.dressCode[0]}</p>`
+        : `<div style="display:flex; flex-direction:column; gap:10px;">
+            ${day.dressCode.map((item) => `
+              <div style="background:#FFFFFF; border:1px solid #FDE68A; border-radius:12px; padding:12px 16px;">
+                <div style="font-family:'Prompt',sans-serif; font-size:17px; font-weight:700; color:#8F5E06; margin-bottom:2px;">• ${item.period}</div>
+                <div style="font-size:17px; line-height:1.6; color:#1E293B;">${item.detail}</div>
+              </div>
+            `).join('')}
+          </div>`;
+
+      const rowsHtml = day.timeline.map((slot) => {
+        const detailPart = slot.detail
+          ? `<div style="font-size:17px; line-height:1.65; color:#334155; margin-top:6px;">${slot.detail}</div>`
+          : '';
+
+        const venuePart = slot.venue
+          ? `<div style="display:inline-block; margin-top:10px; padding:5px 12px; border-radius:8px; background:#EFF7FF; border:1px solid #BFE2FD; color:#124D88; font-family:'Prompt',sans-serif; font-size:15px; font-weight:600;">📍 สถานที่: ${slot.venue}</div>`
+          : '';
+
+        const subItemsPart = slot.subItems
+          ? `<div style="margin-top:12px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; gap:8px;">
+               ${slot.subItems.map((sub) => `
+                 <div style="font-size:16px; line-height:1.6; color:#334155;">
+                   <span style="font-family:'Prompt',sans-serif; font-weight:700; color:#0C2340;">• ${sub.label}</span> ${sub.text}
+                 </div>
+               `).join('')}
+             </div>`
+          : '';
+
+        const splitGroupsPart = slot.splitGroups
+          ? `<div style="margin-top:12px; display:flex; flex-direction:column; gap:10px;">
+               ${slot.splitGroups.map((grp) => {
+                 const bg = grp.color === 'purple' ? '#F5F3FF' : '#EFF7FF';
+                 const border = grp.color === 'purple' ? '#DDD6FE' : '#BFE2FD';
+                 const pillBg = grp.color === 'purple' ? '#6D28D9' : '#155FA8';
+                 return `
+                   <div style="background:${bg}; border:2px solid ${border}; border-radius:12px; padding:12px 16px;">
+                     <div style="display:inline-block; background:${pillBg}; color:#FFFFFF; font-family:'Prompt',sans-serif; font-size:14px; font-weight:700; padding:3px 12px; border-radius:999px; margin-bottom:6px;">
+                       ${grp.badge}
+                     </div>
+                     <div style="font-size:17px; line-height:1.6; color:#1E293B; font-weight:500;">${grp.text}</div>
+                   </div>
+                 `;
+               }).join('')}
+             </div>`
+          : '';
+
+        return `
+          <div style="display:flex; gap:18px; padding:18px 20px; background:#FFFFFF; border:1px solid #E2E8F0; border-radius:16px; box-shadow:0 2px 6px rgba(12,35,64,0.04);">
+            <div style="width:175px; flex-shrink:0;">
+              <div style="display:inline-block; background:#0C2340; color:#FFFFFF; font-family:'Prompt',sans-serif; font-size:16px; font-weight:700; padding:7px 14px; border-radius:10px; line-height:1.35;">
+                ${slot.time}
+              </div>
+            </div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-family:'Prompt',sans-serif; font-size:19px; font-weight:700; color:#0C2340; line-height:1.45;">
+                ${slot.activity}
+              </div>
+              ${detailPart}
+              ${venuePart}
+              ${subItemsPart}
+              ${splitGroupsPart}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div id="exportPosterRoot" style="width:760px; background:#FFFFFF; font-family:'Sarabun',sans-serif; color:#1E293B; box-sizing:border-box;">
+          <!-- Gold Top Bar -->
+          <div style="height:8px; background:linear-gradient(90deg, #1D74C6 0%, #FBBF24 50%, #1D74C6 100%);"></div>
+
+          <!-- Royal Navy Header -->
+          <div style="background:linear-gradient(135deg, #071426 0%, #0C2340 55%, #144170 100%); color:#FFFFFF; padding:32px 36px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span style="font-family:'Prompt',sans-serif; font-size:15px; font-weight:600; color:#FDE68A; letter-spacing:0.4px;">
+                Pre-ACHA and ACHA 28th • 2026
+              </span>
+              <span style="font-family:'Prompt',sans-serif; font-size:14px; font-weight:700; background:#FBBF24; color:#071426; padding:5px 14px; border-radius:999px;">
+                ${day.dayLabel} • ${day.phase}
+              </span>
+            </div>
+
+            <div style="font-family:'Prompt',sans-serif; font-size:28px; font-weight:700; color:#FFFFFF; line-height:1.3;">
+              ${day.dateFull}
+            </div>
+            <div style="font-family:'Prompt',sans-serif; font-size:20px; font-weight:500; color:#DBEFFE; margin-top:8px; line-height:1.45;">
+              ${day.title}
+            </div>
+            <div style="font-family:'Prompt',sans-serif; font-size:15px; color:#FDE68A; margin-top:12px;">
+              📍 พื้นที่กิจกรรม: ${day.locationFull}
+            </div>
+          </div>
+
+          <!-- Poster Body -->
+          <div style="padding:28px 36px 32px 36px; background:#F8FAFC;">
+            <!-- Dress Code Card -->
+            <div style="background:#FFFBEB; border:2px solid #FCD34D; border-radius:18px; padding:20px 24px; margin-bottom:24px;">
+              <div style="font-family:'Prompt',sans-serif; font-size:19px; font-weight:700; color:#8F5E06; margin-bottom:10px;">
+                👔 การแต่งกายประจำวัน (Dress Code)
+              </div>
+              ${dressCodeHtml}
+            </div>
+
+            <!-- Schedule Title -->
+            <div style="font-family:'Prompt',sans-serif; font-size:20px; font-weight:700; color:#0C2340; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
+              <span>🗓️ กำหนดการสำหรับผู้เข้าร่วมประชุม</span>
+              <span style="font-size:15px; font-weight:500; color:#475569;">${day.timeline.length} ช่วงเวลา</span>
+            </div>
+
+            <!-- Full Timeline Rows -->
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              ${rowsHtml}
+            </div>
+          </div>
+
+          <!-- Poster Footer -->
+          <div style="background:#0C2340; color:#CBD5E1; padding:18px 36px; display:flex; justify-content:space-between; align-items:center; font-family:'Prompt',sans-serif; font-size:13px;">
+            <span>Pre-ACHA &amp; The 28th ACHA Convention 2026</span>
+            <span style="color:#FDE68A;">24 – 29 พฤศจิกายน 2026 • ไต้หวัน</span>
+          </div>
+        </div>
+      `;
+    }
+
+    /**
+     * Export a specific day's schedule to a crisp JPG image using html2canvas
+     */
+    async function exportDayToJpg(dayIndex, triggerBtn = null) {
+      if (isExporting) return;
+      const day = scheduleData[dayIndex];
+      if (!day) return;
+
+      if (typeof html2canvas === 'undefined') {
+        showToast('ไม่สามารถสร้างภาพได้', 'กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตแล้วลองใหม่อีกครั้ง', true, false);
+        return;
+      }
+
+      isExporting = true;
+      const originalBtnHtml = triggerBtn ? triggerBtn.innerHTML : '';
+
+      // Show Loading State
+      if (triggerBtn) {
+        triggerBtn.disabled = true;
+        triggerBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i><span>กำลังสร้าง...</span>`;
+      } else {
+        modalExportJpgBtn.disabled = true;
+        modalExportIcon.className = 'fa-solid fa-spinner fa-spin text-lg';
+        modalExportLabel.textContent = 'กำลังสร้างไฟล์ภาพ JPG...';
+      }
+
+      try {
+        // Ensure web fonts are loaded before rendering to canvas
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+
+        // Inject off-screen poster HTML
+        exportPosterStage.innerHTML = buildExportPosterHTML(day);
+        const posterRoot = document.getElementById('exportPosterRoot');
+
+        // Small frame delay so browser computes exact layout metrics
+        await new Promise((resolve) => requestAnimationFrame(() => setTimeout(resolve, 120)));
+
+        const canvas = await html2canvas(posterRoot, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: '#ffffff',
+          logging: false,
+          windowWidth: 760
+        });
+
+        const filename = `Schedule-${day.isoDate}.jpg`;
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
+
+        lastExportedDataUrl = dataUrl;
+        lastExportedFilename = filename;
+
+        // Trigger automatic file download
+        const link = document.createElement('a');
+        link.href = dataUrl;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        showToast('บันทึกภาพกำหนดการเรียบร้อยแล้ว', filename, false, true);
+      } catch (err) {
+        console.error('Export JPG error:', err);
+        showToast('เกิดข้อผิดพลาดในการสร้างภาพ', 'กรุณาลองกดบันทึกใหม่อีกครั้ง', true, false);
+      } finally {
+        exportPosterStage.innerHTML = '';
+        isExporting = false;
+
+        if (triggerBtn) {
+          triggerBtn.disabled = false;
+          triggerBtn.innerHTML = originalBtnHtml;
+        } else {
+          modalExportJpgBtn.disabled = false;
+          modalExportIcon.className = 'fa-solid fa-file-image text-lg';
+          modalExportLabel.textContent = 'บันทึกเป็นภาพ (Export JPG)';
+        }
+      }
+    }
+
+    // ==================== EVENT LISTENERS ====================
+
+    // Filter Pills
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.dataset.filter;
+
+        filterButtons.forEach((b) => {
+          b.className = 'filter-btn px-4 py-2.5 rounded-2xl text-sm sm:text-base font-prompt font-medium transition-all bg-white text-slate-700 border border-slate-200 hover:border-medblue-500 hover:text-navy-900 min-h-[44px]';
+        });
+
+        btn.className = 'filter-btn px-4 py-2.5 rounded-2xl text-sm sm:text-base font-prompt font-semibold transition-all bg-navy-900 text-white shadow-sm min-h-[44px]';
+
+        renderBulletList();
+      });
+    });
+
+    // Modal Actions
+    closeModalBtn.addEventListener('click', closeScheduleModal);
+    modalBackdrop.addEventListener('click', closeScheduleModal);
+
+    prevDayBtn.addEventListener('click', () => {
+      if (currentDayIndex > 0) populateModal(currentDayIndex - 1);
+    });
+
+    nextDayBtn.addEventListener('click', () => {
+      if (currentDayIndex < scheduleData.length - 1) populateModal(currentDayIndex + 1);
+    });
+
+    modalExportJpgBtn.addEventListener('click', () => {
+      exportDayToJpg(currentDayIndex, null);
+    });
+
+    // Keyboard Support (Escape, ArrowLeft, ArrowRight)
+    document.addEventListener('keydown', (e) => {
+      if (!exportPreviewModal.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeExportPreviewModal();
+        return;
+      }
+      if (scheduleModal.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeScheduleModal();
+      else if (e.key === 'ArrowLeft' && currentDayIndex > 0) populateModal(currentDayIndex - 1);
+      else if (e.key === 'ArrowRight' && currentDayIndex < scheduleData.length - 1) populateModal(currentDayIndex + 1);
+    });
+
+    // Mobile Swipe-Down Gesture on Bottom Sheet Handle
+    let touchStartY = 0;
+    let touchCurrentY = 0;
+
+    sheetDragHandle.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    sheetDragHandle.addEventListener('touchmove', (e) => {
+      touchCurrentY = e.touches[0].clientY;
+      const deltaY = touchCurrentY - touchStartY;
+      if (deltaY > 0) {
+        modalPanel.style.transform = `translateY(${deltaY}px)`;
+      }
+    }, { passive: true });
+
+    sheetDragHandle.addEventListener('touchend', () => {
+      const deltaY = touchCurrentY - touchStartY;
+      if (deltaY > 90) {
+        closeScheduleModal();
+      } else {
+        modalPanel.style.transform = '';
+      }
+      touchStartY = 0;
+      touchCurrentY = 0;
+    });
+
+    // Initialize App
+    applyFontStep(currentFontStep);
+    renderBulletList();
+  </script>
+</body>
+</html>
