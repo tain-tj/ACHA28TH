@@ -117,7 +117,7 @@
 
       <!-- Subtitle -->
       <p class="font-prompt text-base sm:text-lg font-medium text-blue-100 mt-2 leading-relaxed">
-        กำหนดการสำหรับผู้เข้าร่วมประชุม | 24 – 29 พฤศจิกายน 2026 | ไต้หวัน
+        กำหนดการ | 24 – 29 พฤศจิกายน 2026 | ไต้หวัน
       </p>
 
       <!-- Route Summary & Interaction Hint -->
@@ -128,7 +128,7 @@
         </span>
         <span class="inline-flex items-center gap-1.5 text-sm font-prompt text-amber-200">
           <i class="fa-solid fa-hand-pointer text-amber-400"></i>
-          <span>แตะวันที่เพื่อดูกำหนดการ หรือบันทึก JPG</span>
+          <span>แตะวันที่เพื่อดูกำหนดการ</span>
         </span>
       </div>
     </div>
@@ -141,11 +141,8 @@
     <div class="mb-4">
       <h2 class="font-prompt text-xl sm:text-2xl font-bold text-brandnavy flex items-center gap-2.5">
         <i class="fa-solid fa-calendar-days text-achablue-600"></i>
-        <span>เลือกวันที่เดินทางและเข้าร่วมประชุม</span>
+        <span>เลือกวันที่เดินทาง</span>
       </h2>
-      <p class="text-base text-slate-600 mt-1 leading-relaxed">
-        แตะการ์ดวันที่เพื่อเปิดดูกำหนดการรายชั่วโมงและคำแนะนำการแต่งกาย หรือกดปุ่ม <strong>JPG</strong> เพื่อบันทึกภาพเก็บไว้ในเครื่อง
-      </p>
     </div>
 
     <!-- Filter Tabs -->
@@ -183,7 +180,7 @@
           คำแนะนำการใช้งานกำหนดการ
         </h3>
         <p class="text-base text-slate-700 mt-1.5 leading-relaxed">
-          กำหนดการนี้จัดทำสำหรับผู้เข้าร่วมประชุมทั่วไป (ไม่แสดงภารกิจฝ่ายประสานงาน) สามารถปรับขนาดตัวอักษรได้ที่ปุ่ม <span class="font-semibold text-brandnavy">ก- / ก+</span> มุมขวาบน และกด <span class="font-semibold text-achablue-700">บันทึกเป็นภาพ (JPG)</span> เพื่อเก็บกำหนดการแต่ละวันไว้ดูออฟไลน์หรือส่งต่อในกลุ่ม LINE ได้ทันทีครับ
+          กำหนดการนี้จัดทำสำหรับผู้เข้าร่วมประชุมทั่วไป สามารถปรับขนาดตัวอักษรได้ที่ปุ่ม <span class="font-semibold text-brandnavy">ก- / ก+</span> มุมขวาบน และกด <span class="font-semibold text-achablue-700">บันทึกเป็นภาพ (JPG)</span> เพื่อเก็บกำหนดการแต่ละวันไว้ดูออฟไลน์หรือส่งต่อในกลุ่ม LINE ได้ทันทีครับ
         </p>
       </div>
     </section>
@@ -278,14 +275,14 @@
       <div class="shrink-0 bg-white border-t border-slate-200 px-3.5 py-3.5 sm:px-6 sm:py-4">
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
           <!-- Export JPG Button (Top on mobile for easy thumb access, Center on desktop) -->
-          <button
+          <!-- <button
             type="button"
             id="modalExportJpgBtn"
             class="order-1 sm:order-2 flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-base font-prompt font-bold text-brandnavy-deep bg-gradient-to-r from-amber-300 via-amber-400 to-amber-400 hover:from-amber-400 hover:to-amber-500 active:scale-[0.985] disabled:opacity-60 transition-all shadow-md min-h-[48px]"
           >
             <i id="modalExportIcon" class="fa-solid fa-file-image text-lg"></i>
             <span id="modalExportLabel">บันทึกเป็นภาพ (JPG)</span>
-          </button>
+          </button> -->
 
           <!-- Prev / Next Row on mobile, Split Sides on desktop -->
           <div class="order-2 sm:order-none sm:contents flex items-center justify-between gap-2">
@@ -498,10 +495,10 @@
         themeType: 'both',
         city: 'เจียอี้ – ไถหนาน (Silks Place Tainan)',
         subtitle: 'ประชุมนานาชาติ และพิธีเปิด ACHA ครั้งที่ 28',
-        dressCodePreview: 'ชุดสุภาพทางการ (Business Attire / สูท / ชุดองค์กร)',
+        dressCodePreview: 'เช้า: ชุดประจำ รพ.+ สูท | 15.00 : เสื้อโปโลพันธกิจแถบสีกรมท่า',
         dressCode: [
           { period: 'ช่วงเช้า (ประชุมวิชาการ)', detail: 'ชุดประจำ รพ.+ สูท' },
-          { period: 'ช่วง 15.00 น. (ประชุม ACHA)', detail: 'เเสื้อโปโลพันธกิจแถบสีกรมท่า' }
+          { period: 'ช่วง 15.00 น. (ประชุม ACHA)', detail: 'เสื้อโปโลพันธกิจแถบสีกรมท่า' }
         ],
         timeline: [
           {
@@ -589,7 +586,7 @@
         themeType: 'acha',
         city: 'ไถหนาน (Silks Place Tainan)',
         subtitle: 'ประชุมวิชาการ วันที่ 2 และทัศนศึกษาเมืองไถหนาน',
-        dressCodePreview: 'เช้า: สูททางการ | บ่าย: ลำลองสุภาพ | ค่ำ: กึ่งทางการ/ชุดไทย',
+        dressCodePreview: 'เช้า: ชุดสูทสากล | บ่าย: ลำลอง | ค่ำ: ชุดเสื้อพื้นเมืองลายช้าง',
         dressCode: [
           { period: 'ช่วงเช้า (ประชุม)', detail: 'ชุดสูทสากล' },
           { period: 'ช่วงบ่าย (Optional City Tour)', detail: 'เปลี่ยนเป็นชุดลำลองและรองเท้าที่เดินสะดวก' },
@@ -661,9 +658,9 @@
         themeType: 'acha',
         city: 'ไถหนาน – เถาหยวน / ไทจง',
         subtitle: 'พิธีปิด ส่งมอบธงเจ้าภาพ และแยกเดินทาง',
-        dressCodePreview: 'ชุดเสื้อโปโลพันธกิจการแพทย์แถบสีแดง + เตรียมเสื้อคลุมสำหรับเดินทางต่อ',
+        dressCodePreview: 'ชุดเสื้อโปโลพันธกิจการแพทย์แถบสีแดง + สูท',
         dressCode: [
-          'ชุดเสื้อโปโลพันธกิจการแพทย์แถบสีแดง'
+          'ชุดเสื้อโปโลพันธกิจการแพทย์แถบสีแดง + เตรียมเสื้อคลุมสำหรับเดินทางต่อ'
         ],
         timeline: [
           {
@@ -740,7 +737,7 @@
         subtitle: 'ร่วมนมัสการที่ไทจง และเดินทางกลับไทย',
         dressCodePreview: 'ชุดสุภาพร่วมนมัสการที่โบสถ์ + คล่องตัวสำหรับเดินทางรถไฟฟ้า',
         dressCode: [
-          'ชุดสุภาพสำหรับร่วมนมัสการที่โบสถ์ และคล่องตัวสำหรับเดินทางด้วยรถไฟฟ้าไปยังสนามบินเถาหยวน พร้อมเสื้อคลุมกันหนาวบนเครื่องบิน'
+          'ชุดสุภาพสำหรับร่วมนมัสการที่โบสถ์ และคล่องตัวสำหรับเดินทางด้วยรถไฟฟ้าไปยังสนามบินเถาหยวน'
         ],
         timeline: [
           {
@@ -777,11 +774,11 @@
 
     // Font Size Steps (90% – 125% based on comfortable 17px default)
     const fontSteps = [
-      { px: 15.3, label: '90%' },
-      { px: 17, label: '100%' },
-      { px: 18.7, label: '110%' },
-      { px: 20.4, label: '120%' },
-      { px: 21.25, label: '125%' }
+      { px: 8, label: '90%' },
+      { px: 10, label: '100%' },
+      { px: 12, label: '110%' },
+      { px: 14, label: '120%' },
+      { px: 16, label: '125%' }
     ];
     let currentFontStep = 1; // Default 100% (17px)
 
