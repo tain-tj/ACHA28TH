@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="th" class="text-[17px]">
+<html lang="th" class="text-[14px]">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pre-ACHA and ACHA 28th | กำหนดการสำหรับผู้เข้าร่วมประชุม</title>
+  <title>กำหนดการ Pre-ACHA and ACHA 28th</title>
 
   <!-- Google Fonts: Prompt (Headings & UI) and Sarabun (Body Text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -188,7 +188,7 @@
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="max-w-3xl w-full mx-auto px-4 sm:px-6 py-7 text-center text-sm text-slate-500 border-t border-slate-200/80">
-    <p class="font-prompt font-semibold text-brandnavy">Pre-ACHA &amp; The 28th Asian Christian Hospital Association (ACHA) Convention</p>
+    <p class="font-prompt font-semibold text-brandnavy">Pre-ACHA & The 28th Asian Christian Hospital Association (ACHA) Convention</p>
     <p class="mt-1">24 – 29 พฤศจิกายน 2026 • ไต้หวัน (Chiayi • Alishan • Tainan • Taichung)</p>
   </footer>
 
@@ -271,7 +271,7 @@
 
       </div>
 
-      <!-- Footer Action Bar: Prev Day | Save JPG | Next Day -->
+      <!-- Footer Action Bar: Prev Day | Next Day -->
       <div class="shrink-0 bg-white border-t border-slate-200 px-3.5 py-3.5 sm:px-6 sm:py-4">
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
           <!-- Export JPG Button (Top on mobile for easy thumb access, Center on desktop) -->
@@ -758,7 +758,7 @@
           {
             time: 'ช่วงบ่าย',
             icon: 'fa-train-subway',
-            activity: 'เดินทางโดยรถไฟฟ้าจากเมืองไทจงไปยังสนามบินนานาชาติเถาหยวน เพื่อเดินทางกลับประเทศไทย TG635(ฺTPE-BKK) 18.50-21.45 น.'
+            activity: 'เดินทางโดยรถไฟฟ้าจากเมืองไทจงไปยังสนามบินนานาชาติเถาหยวน เพื่อเดินทางกลับประเทศไทย TG635(TPE-BKK) 18.50-21.45 น.'
           }
         ]
       }
@@ -772,15 +772,15 @@
     let lastExportedFilename = '';
     let toastTimeout = null;
 
-    // Font Size Steps (90% – 125% based on comfortable 17px default)
+    // Font Size Steps (based on 14px default = 100%)
     const fontSteps = [
-      { px: 8, label: '90%' },
-      { px: 10, label: '100%' },
-      { px: 12, label: '110%' },
-      { px: 14, label: '120%' },
-      { px: 16, label: '125%' }
+      { px: 12, label: '90%' },
+      { px: 14, label: '100%' },
+      { px: 16, label: '110%' },
+      { px: 18, label: '120%' },
+      { px: 20, label: '125%' }
     ];
-    let currentFontStep = 1; // Default 100% (17px)
+    let currentFontStep = 1; // Default 100% (14px)
 
     // ==================== DOM REFERENCES ====================
     const dateBulletList = document.getElementById('dateBulletList');
@@ -817,7 +817,7 @@
     const toastIconWrap = document.getElementById('toastIconWrap');
     const toastPreviewBtn = document.getElementById('toastPreviewBtn');
 
-    // ==================== FONT SIZE SCALING (90% – 125%) ====================
+    // ==================== FONT SIZE SCALING (DEFAULT 14PX) ====================
     function applyFontStep(stepIndex) {
       currentFontStep = Math.max(0, Math.min(fontSteps.length - 1, stepIndex));
       const step = fontSteps[currentFontStep];
@@ -1336,7 +1336,7 @@
 
           <!-- Poster Footer -->
           <div style="background:#1e3a5f; color:#cbd5e1; padding:18px 38px; display:flex; justify-content:space-between; align-items:center; font-family:'Prompt',sans-serif; font-size:14px; line-height:1.5;">
-            <span>Pre-ACHA &amp; The 28th ACHA Convention 2026</span>
+            <span>Pre-ACHA & The 28th ACHA Convention 2026</span>
             <span style="color:#fde68a;">24 – 29 พฤศจิกายน 2026 • ไต้หวัน</span>
           </div>
         </div>
@@ -1362,10 +1362,10 @@
       if (triggerBtn) {
         triggerBtn.disabled = true;
         triggerBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i><span>กำลังสร้าง...</span>`;
-      } else {
+      } else if (modalExportJpgBtn) {
         modalExportJpgBtn.disabled = true;
-        modalExportIcon.className = 'fa-solid fa-spinner fa-spin text-lg';
-        modalExportLabel.textContent = 'กำลังสร้างไฟล์ JPG...';
+        if (modalExportIcon) modalExportIcon.className = 'fa-solid fa-spinner fa-spin text-lg';
+        if (modalExportLabel) modalExportLabel.textContent = 'กำลังสร้างไฟล์ JPG...';
       }
 
       try {
@@ -1413,10 +1413,10 @@
         if (triggerBtn) {
           triggerBtn.disabled = false;
           triggerBtn.innerHTML = originalBtnHtml;
-        } else {
+        } else if (modalExportJpgBtn) {
           modalExportJpgBtn.disabled = false;
-          modalExportIcon.className = 'fa-solid fa-file-image text-lg';
-          modalExportLabel.textContent = 'บันทึกเป็นภาพ (JPG)';
+          if (modalExportIcon) modalExportIcon.className = 'fa-solid fa-file-image text-lg';
+          if (modalExportLabel) modalExportLabel.textContent = 'บันทึกเป็นภาพ (JPG)';
         }
       }
     }
@@ -1464,9 +1464,11 @@
       if (currentDayIndex < scheduleData.length - 1) populateModal(currentDayIndex + 1);
     });
 
-    modalExportJpgBtn.addEventListener('click', () => {
-      exportDayToJpg(currentDayIndex, null);
-    });
+    if (modalExportJpgBtn) {
+      modalExportJpgBtn.addEventListener('click', () => {
+        exportDayToJpg(currentDayIndex, null);
+      });
+    }
 
     // Keyboard Accessibility
     document.addEventListener('keydown', (e) => {
