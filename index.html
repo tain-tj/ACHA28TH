@@ -180,7 +180,7 @@
           คำแนะนำการใช้งานกำหนดการ
         </h3>
         <p class="text-base text-slate-700 mt-1.5 leading-relaxed">
-          กำหนดการนี้จัดทำสำหรับผู้เข้าร่วมประชุมทั่วไป สามารถปรับขนาดตัวอักษรได้ที่ปุ่ม <span class="font-semibold text-brandnavy">ก- / ก+</span> มุมขวาบน และกดปุ่ม <span class="font-semibold text-achablue-700">JPG</span> บนแต่ละวันเพื่อบันทึกภาพกำหนดการไว้ดูออฟไลน์หรือส่งต่อในกลุ่ม LINE ได้ทันทีครับ
+          กำหนดการนี้จัดทำสำหรับผู้เข้าร่วมประชุมทั่วไป สามารถปรับขนาดตัวอักษรได้ที่ปุ่ม <span class="font-semibold text-brandnavy">ก- / ก+</span> มุมขวาบน และกดปุ่ม <span class="font-semibold text-achablue-700">JPG</span> บนแต่ละวันเพื่อบันทึกภาพลงอัลบั้มได้ทันทีครับ (สำหรับ iPhone ให้เลือก <strong>"บันทึกรูปภาพ"</strong> ในเมนูที่เด้งขึ้นมา)
         </p>
       </div>
     </section>
@@ -300,18 +300,28 @@
 
   <!-- ==================== TOAST NOTIFICATION (NON-BLOCKING) ==================== -->
   <div id="toastContainer" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-[70] w-[calc(100%-2rem)] max-w-md pointer-events-none opacity-0 translate-y-4 transition-all duration-300">
-    <div class="bg-brandnavy-deep text-white rounded-2xl px-4 py-3.5 shadow-2xl border border-amber-400/40 flex items-center gap-3">
-      <span id="toastIconWrap" class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-        <i id="toastIcon" class="fa-solid fa-circle-check text-lg"></i>
-      </span>
-      <div class="min-w-0">
-        <p id="toastTitle" class="font-prompt text-sm sm:text-base font-semibold text-white truncate">
-          บันทึกภาพเรียบร้อยแล้ว
-        </p>
-        <p id="toastSub" class="text-xs sm:text-sm text-slate-300 truncate">
-          Schedule-2026-11-24.jpg
-        </p>
+    <div class="bg-brandnavy-deep text-white rounded-2xl px-4 py-3.5 shadow-2xl border border-amber-400/40 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <span id="toastIconWrap" class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+          <i id="toastIcon" class="fa-solid fa-circle-check text-lg"></i>
+        </span>
+        <div class="min-w-0">
+          <p id="toastTitle" class="font-prompt text-sm sm:text-base font-semibold text-white truncate">
+            บันทึกภาพเรียบร้อยแล้ว
+          </p>
+          <p id="toastSub" class="text-xs sm:text-sm text-slate-300 truncate">
+            Schedule-2026-11-24.jpg
+          </p>
+        </div>
       </div>
+      <!-- Action button for iOS 1-tap Share/Save recovery when async gesture expires -->
+      <button
+        type="button"
+        id="toastActionBtn"
+        class="hidden pointer-events-auto shrink-0 px-3.5 py-2 rounded-xl bg-amber-400 text-brandnavy-deep font-prompt text-xs sm:text-sm font-bold hover:bg-amber-300 active:scale-95 transition-all shadow-sm"
+      >
+        บันทึกลงอัลบั้ม
+      </button>
     </div>
   </div>
 
@@ -362,7 +372,7 @@
           {
             time: '08.00 – 12.45 น.',
             icon: 'fa-plane-departure',
-            activity: 'เดินทางสู่สนามบินนานาชาติเถาหยวน ไต้หวัน (เที่ยวบิน TG632:BKK-TPE 08.10-12.40 น. / FD242:BKK-TPE 08.00-12.35 น.)'
+            activity: 'เดินทางสู่สนามบินนานาชาติเถาหยวน ไต้หวัน (เที่ยวบิน TG632:BKK-TPE 08.10-12.40 น. / FD242:CNX-TPE 08.00-12.35 น.)'
           },
           {
             time: '12.35 – 13.30 น.',
@@ -570,7 +580,7 @@
           {
             time: '10.40 น.',
             icon: 'fa-heart-pulse',
-            activity: 'การเสวนาช่วงที่ 2 (Forum II): "Love for People - Social Gospel Responsibility and Medical Care for Marginalized Groups" (วิทยากรหลัก: นพ.รักษ์ พรหมปาลิต รพ.คริสเตียนสังขละบุรี / ผู้ร่วมอภิปราย: Dr. Mitsue Maru และ Dr. Wen-Han Chang)',
+            activity: 'การเสวนาช่วงที่ 2 (Forum II): "Love for People - Social Gospel Responsibility and Medical Care for Marginalized Groups" (วิทยากรหลัก: ดร.รักษ์ พรหมปาลิต รพ.คริสเตียนสังขละบุรี / ผู้ร่วมอภิปราย: Dr. Mitsue Maru และ Dr. Wen-Han Chang)',
             location: 'ห้อง 2F Ballroom I'
           },
           {
@@ -628,7 +638,7 @@
           {
             time: '09.00 น.',
             icon: 'fa-leaf',
-            activity: 'การเสวนาช่วงที่ 3 (Forum III): "Hope for the Land — Environmental Sustainability Practices of Christian Hospitals" (ผู้ดำเนินการเสวนา: คุณวริทธิ์ อนุชิราชีวะ / วิทยากรหลัก: Dr. Makoto Nabetani / ผู้ร่วมอภิปราย: Dr. Chi-Chun Chou และ Dr. Dae Young Lee)',
+            activity: 'การเสวนาช่วงที่ 3 (Forum III): "Hope for the Land — Environmental Sustainability Practices of Christian Hospitals" (ผู้ดำเนินการเสวนา: มน.วริทธิ์ อนุชิราชีวะ / วิทยากรหลัก: Dr. Makoto Nabetani / ผู้ร่วมอภิปราย: Dr. Chi-Chun Chou และ Dr. Dae Young Lee)',
             location: 'ห้อง 2F Ballroom I'
           },
           {
@@ -662,12 +672,12 @@
               {
                 badge: 'กลุ่มที่ 1 (เดินทางกลับวันที่ 28 พ.ย.)',
                 color: 'blue',
-                text: 'เดินทางตรงไปยังสนามบินนานาชาติเถาหยวน เพื่อเดินทางกลับประเทศไทย TG635:TPE-BKK 18.50-21.45 น. /FD243:TPE-CNX 18.55-22.10 น.'
+                text: 'เดินทางโดยรถบัสไปสนามบินเถาหยวน(ทานอาหารบนรถบัส) TG635:TPE-BKK 18.50-21.45 น. /FD243:TPE-CNX 18.55-22.10 น.'
               },
               {
                 badge: 'กลุ่มที่ 2 (คณะ 10 ท่าน เดินทางกลับวันที่ 29 พ.ย.)',
                 color: 'purple',
-                text: 'เดินทางไปยังเมืองไทจง (Taichung) และเข้าพักโรงแรม 1 คืน'
+                text: 'เดินทางโดยรถบัสไปเมืองไทจง (Taichung) และเข้าพักโรงแรม 1 คืน'
               }
             ]
           }
@@ -687,7 +697,7 @@
         subtitle: 'ร่วมนมัสการที่ไทจง และเดินทางกลับไทย',
         dressCodePreview: 'ชุดสุภาพร่วมนมัสการที่โบสถ์ + คล่องตัวสำหรับเดินทางรถไฟฟ้า',
         dressCode: [
-          'ชุดสุภาพสำหรับร่วมนมัสการที่โบสถ์ และคล่องตัวสำหรับเดินทางด้วยรถไฟฟ้าไปยังสนามบินเถาหยวน'
+          'ชุดสุภาพสำหรับร่วมนมัสการที่โบสถ์ และเดินทางด้วยรถไฟฟ้าไปยังสนามบินเถาหยวน'
         ],
         timeline: [
           {
@@ -718,6 +728,7 @@
     let activeFilter = 'all';
     let currentDayIndex = 0;
     let isExporting = false;
+    let pendingSharePayload = null;
     let toastTimeout = null;
     let toastHideTimeout = null;
 
@@ -755,6 +766,7 @@
     const toastSub = document.getElementById('toastSub');
     const toastIcon = document.getElementById('toastIcon');
     const toastIconWrap = document.getElementById('toastIconWrap');
+    const toastActionBtn = document.getElementById('toastActionBtn');
 
     // ==================== FONT SIZE SCALING (DEFAULT 14PX) ====================
     function applyFontStep(stepIndex) {
@@ -768,6 +780,51 @@
 
     fontDecreaseBtn.addEventListener('click', () => applyFontStep(currentFontStep - 1));
     fontIncreaseBtn.addEventListener('click', () => applyFontStep(currentFontStep + 1));
+
+    // ==================== DEVICE / PLATFORM HELPERS ====================
+    function isIOSDevice() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    }
+
+    function isInAppBrowser() {
+      return /\b(Line|FBAN|FBAV|Instagram|MicroMessenger)\b/i.test(navigator.userAgent);
+    }
+
+    function canvasToJpegBlob(canvas, quality = 0.92) {
+      return new Promise((resolve, reject) => {
+        if (canvas.toBlob) {
+          canvas.toBlob((blob) => {
+            if (blob) resolve(blob);
+            else reject(new Error('Canvas toBlob returned null'));
+          }, 'image/jpeg', quality);
+        } else {
+          try {
+            const dataUrl = canvas.toDataURL('image/jpeg', quality);
+            const arr = dataUrl.split(',');
+            const bstr = atob(arr[1]);
+            let n = bstr.length;
+            const u8arr = new Uint8Array(n);
+            while (n--) u8arr[n] = bstr.charCodeAt(n);
+            resolve(new Blob([u8arr], { type: 'image/jpeg' }));
+          } catch (e) {
+            reject(e);
+          }
+        }
+      });
+    }
+
+    function downloadBlobDirectly(blob, filename) {
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = filename;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 60000);
+    }
 
     // ==================== COLOR / THEME HELPERS ====================
     function getPhaseBadgeHtml(phase, isDarkBg = false) {
@@ -1055,6 +1112,7 @@
 
     // ==================== OPEN & CLOSE SCHEDULE MODAL ====================
     function openScheduleModal(index) {
+      hideToast();
       populateModal(index);
 
       scheduleModal.classList.remove('hidden');
@@ -1084,7 +1142,20 @@
     }
 
     // ==================== TOAST NOTIFICATION ====================
-    function showToast(title, subtitle, isError = false) {
+    function hideToast() {
+      clearTimeout(toastTimeout);
+      clearTimeout(toastHideTimeout);
+      toastContainer.classList.remove('opacity-100', 'translate-y-0');
+      toastContainer.classList.add('opacity-0', 'translate-y-4');
+      toastHideTimeout = setTimeout(() => {
+        toastContainer.classList.add('hidden');
+        toastActionBtn.classList.add('hidden');
+      }, 250);
+    }
+
+    function showToast(title, subtitle, isError = false, options = {}) {
+      const { showAction = false, actionLabel = 'บันทึกลงอัลบั้ม', duration = 4500 } = options;
+
       toastTitle.textContent = title;
       toastSub.textContent = subtitle;
 
@@ -1096,6 +1167,13 @@
         toastIcon.className = 'fa-solid fa-circle-check text-lg';
       }
 
+      if (showAction) {
+        toastActionBtn.textContent = actionLabel;
+        toastActionBtn.classList.remove('hidden');
+      } else {
+        toastActionBtn.classList.add('hidden');
+      }
+
       clearTimeout(toastTimeout);
       clearTimeout(toastHideTimeout);
 
@@ -1105,14 +1183,34 @@
         toastContainer.classList.add('opacity-100', 'translate-y-0');
       });
 
-      toastTimeout = setTimeout(() => {
-        toastContainer.classList.remove('opacity-100', 'translate-y-0');
-        toastContainer.classList.add('opacity-0', 'translate-y-4');
-        toastHideTimeout = setTimeout(() => {
-          toastContainer.classList.add('hidden');
-        }, 300);
-      }, 4000);
+      toastTimeout = setTimeout(hideToast, duration);
     }
+
+    // Direct synchronous trigger for iOS Share Sheet ("Save Image" -> Photos Album)
+    toastActionBtn.addEventListener('click', async () => {
+      if (!pendingSharePayload) return;
+      const { file, title, blob, filename } = pendingSharePayload;
+
+      try {
+        if (navigator.share && (!navigator.canShare || navigator.canShare({ files: [file] }))) {
+          await navigator.share({ files: [file], title });
+          pendingSharePayload = null;
+          hideToast();
+        } else {
+          downloadBlobDirectly(blob, filename);
+          pendingSharePayload = null;
+          showToast('ดาวน์โหลดไฟล์ภาพแล้ว', filename, false);
+        }
+      } catch (err) {
+        if (err && err.name === 'AbortError') {
+          hideToast();
+          return;
+        }
+        downloadBlobDirectly(blob, filename);
+        pendingSharePayload = null;
+        showToast('ดาวน์โหลดไฟล์ภาพแล้ว', filename, false);
+      }
+    });
 
     // ==================== PRINT-READY 800PX POSTER BUILDER (NO THAI CLIPPING) ====================
     function buildExportPosterHTML(day) {
@@ -1263,7 +1361,9 @@
     }
 
     /**
-     * Export specific day's schedule directly to a crisp 2x resolution JPG via html2canvas
+     * Export specific day's schedule to JPG:
+     * - iOS (iPhone/iPad): Uses Web Share API (Save Image -> Photos Album) with safe canvas scaling & 1-tap retry if gesture expires
+     * - Android / Desktop: Direct Blob download (automatically indexed into Android Gallery/Photos)
      */
     async function exportDayToJpg(dayIndex, triggerBtn = null) {
       if (isExporting) return;
@@ -1276,6 +1376,7 @@
       }
 
       isExporting = true;
+      pendingSharePayload = null;
       const originalBtnHtml = triggerBtn ? triggerBtn.innerHTML : '';
 
       if (triggerBtn) {
@@ -1284,34 +1385,97 @@
       }
 
       try {
-        if (document.fonts && document.fonts.ready) {
+        if (document.fonts && document.fonts.status !== 'loaded') {
           await document.fonts.ready;
         }
 
         exportPosterStage.innerHTML = buildExportPosterHTML(day);
         const posterRoot = document.getElementById('exportPosterRoot');
 
-        await new Promise((resolve) => requestAnimationFrame(() => setTimeout(resolve, 140)));
+        // Minimal frame paint wait so iOS keeps user gesture active as often as possible
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+
+        const isIOS = isIOSDevice();
+        const posterHeight = posterRoot.scrollHeight || 1600;
+        // Cap canvas dimensions on iOS Safari to stay safely under WebKit's 4096px / 16.7MP limit
+        const safeScale = isIOS
+          ? Math.min(2, Math.max(1.25, Math.floor((3900 / Math.max(800, posterHeight)) * 100) / 100))
+          : 2;
 
         const canvas = await html2canvas(posterRoot, {
-          scale: 2,
+          scale: safeScale,
           useCORS: true,
           backgroundColor: '#ffffff',
           logging: false,
-          windowWidth: 800
+          scrollX: 0,
+          scrollY: 0,
+          windowWidth: 800,
+          windowHeight: posterHeight
         });
 
         const filename = `Schedule-${day.isoDate}.jpg`;
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.95);
+        const blob = await canvasToJpegBlob(canvas, 0.92);
+        const file = new File([blob], filename, { type: 'image/jpeg' });
 
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        // 1. iOS Path (or In-App Browser with file share support): Open native Share Sheet -> "Save Image" to Photos Album
+        const canShareFile = typeof navigator.share === 'function' &&
+          (!navigator.canShare || navigator.canShare({ files: [file] }));
 
-        showToast('บันทึกภาพกำหนดการเรียบร้อยแล้ว', filename, false);
+        if (isIOS && canShareFile) {
+          try {
+            await navigator.share({
+              files: [file],
+              title: day.dateFull
+            });
+            showToast('เปิดเมนูบันทึกภาพแล้ว', 'เลือก "บันทึกรูปภาพ" เพื่อเก็บลงอัลบั้ม', false);
+          } catch (shareErr) {
+            if (shareErr && shareErr.name === 'AbortError') {
+              // User closed the share sheet intentionally
+            } else if (shareErr && shareErr.name === 'NotAllowedError') {
+              // iOS Safari expired the click gesture during rendering -> offer instant 1-tap share button
+              pendingSharePayload = { file, title: day.dateFull, blob, filename };
+              showToast('สร้างภาพกำหนดการพร้อมแล้ว', 'แตะปุ่มเพื่อเลือก "บันทึกรูปภาพ" ลงอัลบั้ม', false, {
+                showAction: true,
+                actionLabel: 'บันทึกลงอัลบั้ม',
+                duration: 12000
+              });
+            } else {
+              // Other share error -> fallback to opening image in new tab so user can long-press Save to Photos
+              const url = URL.createObjectURL(blob);
+              window.open(url, '_blank');
+              showToast('สร้างภาพเรียบร้อยแล้ว', 'แตะค้างที่รูปภาพเพื่อบันทึกลงอัลบั้ม', false, { duration: 6000 });
+            }
+          }
+        } else if (isIOS) {
+          // iOS fallback (e.g., LINE In-App Browser where Web Share API is unavailable)
+          const url = URL.createObjectURL(blob);
+          const opened = window.open(url, '_blank');
+          if (!opened) {
+            downloadBlobDirectly(blob, filename);
+          }
+          showToast(
+            isInAppBrowser() ? 'แนะนำให้เปิดผ่าน Safari' : 'สร้างภาพเรียบร้อยแล้ว',
+            isInAppBrowser()
+              ? 'เปิดลิงก์ใน Safari เพื่อกดบันทึกลงอัลบั้มได้ทันที'
+              : 'แตะค้างที่รูปภาพเพื่อบันทึกลงอัลบั้ม',
+            false,
+            { duration: 6500 }
+          );
+        } else if (isInAppBrowser() && canShareFile) {
+          // Android inside LINE/Facebook in-app browser where direct blob download may be blocked
+          try {
+            await navigator.share({ files: [file], title: day.dateFull });
+          } catch (e) {
+            if (!e || e.name !== 'AbortError') {
+              downloadBlobDirectly(blob, filename);
+              showToast('บันทึกภาพกำหนดการแล้ว', filename, false);
+            }
+          }
+        } else {
+          // 2. Android & Desktop Path: Direct Blob download (Android automatically adds it to Gallery/Album)
+          downloadBlobDirectly(blob, filename);
+          showToast('บันทึกภาพลงเครื่องเรียบร้อยแล้ว', `${filename} (อยู่ในอัลบั้ม/ดาวน์โหลด)`, false);
+        }
       } catch (err) {
         console.error('JPG export failed:', err);
         showToast('เกิดข้อผิดพลาดในการสร้างภาพ', 'กรุณาลองกดบันทึกใหม่อีกครั้ง', true);
