@@ -79,34 +79,52 @@
     <div class="pointer-events-none absolute -bottom-24 -left-16 w-64 h-64 rounded-full bg-preteal-600/20 blur-3xl"></div>
 
     <div class="relative max-w-3xl mx-auto px-4 sm:px-6 pt-6 pb-8 sm:pt-9 sm:pb-10">
-      <!-- Top Bar: Date Pill + Font Size Controls (ก- / ก+) -->
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+      <!-- Top Bar: Date Pill + OneDrive Files Icon + Font Size Controls (ก- / ก+) -->
+      <div class="flex flex-wrap items-center justify-between gap-2.5 mb-5">
         <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-prompt font-medium bg-white/10 border border-white/20 backdrop-blur-sm text-amber-200">
           <i class="fa-regular fa-calendar-check text-amber-400"></i>
           <span>24 – 29 พฤศจิกายน 2026</span>
         </span>
 
-        <!-- Font Size Control Widget (90% – 125%) -->
-        <div class="inline-flex items-center gap-1 bg-brandnavy-deep/70 border border-white/20 rounded-full p-1 backdrop-blur-sm" role="group" aria-label="ปรับขนาดตัวอักษร">
+        <!-- Right Controls Group: OneDrive Files Button + Font Size Widget -->
+        <div class="flex items-center gap-2 ml-auto">
+          <!-- OneDrive File Icon Button -->
           <button
             type="button"
-            id="fontDecreaseBtn"
-            title="ลดขนาดตัวอักษร"
-            class="px-3 py-1.5 rounded-full text-sm font-prompt font-semibold text-white hover:bg-white/15 active:scale-95 disabled:opacity-40 transition-all min-w-[44px]"
+            id="openFilesModalBtn"
+            title="เปิดเอกสารประกอบการประชุมใน OneDrive"
+            aria-label="เปิดไฟล์เอกสารใน OneDrive"
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-prompt font-semibold bg-amber-400 text-brandnavy-deep hover:bg-amber-300 active:scale-95 transition-all shadow-sm min-h-[38px]"
           >
-            ก-
+            <i class="fa-solid fa-folder-open text-brandnavy-deep"></i>
+            <span>เอกสาร</span>
+            <span id="fileCountBadge" class="inline-flex items-center justify-center px-1.5 py-0.2 rounded-full text-xs font-bold bg-brandnavy-deep text-amber-200 min-w-[20px]">
+              4
+            </span>
           </button>
-          <span id="fontSizeLabel" class="px-1.5 text-xs font-prompt text-amber-200 font-semibold select-none min-w-[42px] text-center">
-            100%
-          </span>
-          <button
-            type="button"
-            id="fontIncreaseBtn"
-            title="ขยายขนาดตัวอักษร"
-            class="px-3 py-1.5 rounded-full text-sm font-prompt font-semibold text-white hover:bg-white/15 active:scale-95 disabled:opacity-40 transition-all min-w-[44px]"
-          >
-            ก+
-          </button>
+
+          <!-- Font Size Control Widget (90% – 125%) -->
+          <div class="inline-flex items-center gap-1 bg-brandnavy-deep/70 border border-white/20 rounded-full p-1 backdrop-blur-sm" role="group" aria-label="ปรับขนาดตัวอักษร">
+            <button
+              type="button"
+              id="fontDecreaseBtn"
+              title="ลดขนาดตัวอักษร"
+              class="px-2.5 py-1 rounded-full text-sm font-prompt font-semibold text-white hover:bg-white/15 active:scale-95 disabled:opacity-40 transition-all min-w-[38px]"
+            >
+              ก-
+            </button>
+            <span id="fontSizeLabel" class="px-1 text-xs font-prompt text-amber-200 font-semibold select-none min-w-[38px] text-center">
+              100%
+            </span>
+            <button
+              type="button"
+              id="fontIncreaseBtn"
+              title="ขยายขนาดตัวอักษร"
+              class="px-2.5 py-1 rounded-full text-sm font-prompt font-semibold text-white hover:bg-white/15 active:scale-95 disabled:opacity-40 transition-all min-w-[38px]"
+            >
+              ก+
+            </button>
+          </div>
         </div>
       </div>
 
@@ -180,7 +198,7 @@
           คำแนะนำการใช้งานกำหนดการ
         </h3>
         <p class="text-base text-slate-700 mt-1.5 leading-relaxed">
-          กำหนดการนี้จัดทำสำหรับผู้เข้าร่วมประชุมทั่วไป สามารถปรับขนาดตัวอักษรได้ที่ปุ่ม <span class="font-semibold text-brandnavy">ก- / ก+</span> มุมขวาบน และกดปุ่ม <span class="font-semibold text-achablue-700">JPG</span> บนแต่ละวันเพื่อบันทึกภาพลงอัลบั้มได้ทันทีครับ (สำหรับ iPhone ให้เลือก <strong>"บันทึกรูปภาพ"</strong> ในเมนูที่เด้งขึ้นมา)
+          กำหนดการนี้จัดทำสำหรับผู้เข้าร่วมประชุมทั่วไป สามารถกดปุ่ม <span class="font-semibold text-amber-700">เอกสาร</span> ด้านบนเพื่อเปิดดูไฟล์ต่างๆ ใน OneDrive ปรับขนาดตัวอักษรได้ที่ <span class="font-semibold text-brandnavy">ก- / ก+</span> และกดปุ่ม <span class="font-semibold text-achablue-700">JPG</span> บนแต่ละวันเพื่อบันทึกภาพลงอัลบั้มได้ทันทีครับ
         </p>
       </div>
     </section>
@@ -191,6 +209,65 @@
     <p class="font-prompt font-semibold text-brandnavy">Pre-ACHA & The 28th Asian Christian Hospital Association (ACHA) Convention</p>
     <p class="mt-1">24 – 29 พฤศจิกายน 2026 • ไต้หวัน (Chiayi • Alishan • Tainan • Taichung)</p>
   </footer>
+
+  <!-- ==================== ONEDRIVE DOCUMENTS MODAL / BOTTOM SHEET ==================== -->
+  <div id="filesModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="filesModalTitle">
+    <!-- Backdrop -->
+    <div id="filesModalBackdrop" class="fixed inset-0 bg-brandnavy-deep/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+    <!-- Panel -->
+    <div id="filesModalPanel" class="relative z-10 w-full sm:max-w-xl bg-white rounded-t-3xl sm:rounded-3xl shadow-sheet max-h-[88vh] flex flex-col overflow-hidden transform translate-y-full sm:translate-y-6 sm:scale-95 opacity-0 transition-all duration-300 ease-out">
+      <!-- Mobile Handle -->
+      <div class="sm:hidden pt-3 pb-1 flex justify-center bg-brandnavy-deep">
+        <span class="w-12 h-1.5 rounded-full bg-white/35"></span>
+      </div>
+
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-brandnavy-deep via-brandnavy to-brandnavy-light text-white px-5 py-4 sm:px-6 sm:py-5 shrink-0 border-b-2 border-amber-400">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs sm:text-sm font-prompt font-semibold bg-sky-500/20 text-sky-200 border border-sky-300/30 mb-1.5">
+              <i class="fa-solid fa-cloud"></i>
+              <span>OneDrive Cloud Documents</span>
+            </span>
+            <h3 id="filesModalTitle" class="font-prompt text-lg sm:text-xl font-bold text-white leading-snug">
+              เอกสารประกอบการเดินทางและประชุม
+            </h3>
+            <p class="text-sm text-blue-100 mt-0.5">
+              แตะที่รายการเพื่อเปิดดูหรือดาวน์โหลดไฟล์จาก OneDrive
+            </p>
+          </div>
+
+          <button
+            type="button"
+            id="closeFilesModalBtn"
+            aria-label="ปิดหน้าต่างเอกสาร"
+            class="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 active:scale-95 text-white flex items-center justify-center transition-all shrink-0"
+          >
+            <i class="fa-solid fa-xmark text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- File Links List -->
+      <div id="oneDriveFileList" class="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 space-y-3 bg-pagebg"></div>
+
+      <!-- Footer -->
+      <div class="shrink-0 bg-white border-t border-slate-200 px-5 py-3.5 flex items-center justify-between gap-3">
+        <span class="text-xs sm:text-sm text-slate-500 font-prompt">
+          <i class="fa-solid fa-arrow-up-right-from-square text-achablue-600 mr-1"></i>
+          ไฟล์จะเปิดในหน้าต่างใหม่
+        </span>
+        <button
+          type="button"
+          id="closeFilesModalBtn2"
+          class="px-5 py-2.5 rounded-xl text-sm sm:text-base font-prompt font-semibold text-white bg-brandnavy hover:bg-brandnavy-light active:scale-95 transition-all min-h-[42px]"
+        >
+          ปิดหน้าต่าง
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ==================== DAILY SCHEDULE MODAL / MOBILE BOTTOM SHEET ==================== -->
   <div id="scheduleModal" class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -331,8 +408,24 @@
   <!-- ==================== APPLICATION SCRIPT ==================== -->
   <script>
     /**
-     * Complete 6-Day Schedule Dataset (24 - 29 November 2026)
+     * ============================================================================
+     * 1. รายการไฟล์เอกสาร OneDrive (นำลิงก์ OneDrive มาวางแทนที่ 'ใส่ลิงก์_ONEDRIVE_ที่นี่')
+     * ============================================================================
+     */
+    const oneDriveFiles = [
+      {
+        title: 'ข้อมูลทั้งหมด',
+        desc: 'คู่มือ, ตั๋วเครื่องบิน, ประกัน, บัตรเชิญ, ไฟล์, อื่นๆ,',
+        type: 'folder',
+        url: 'https://bchinth-my.sharepoint.com/:f:/g/personal/thumrong_mai_bch_in_th/IgCElQVpmuZkRoLELeOzJI4DAV9nRkAw33eGb8iMKeVMzHo?e=Vj4Dk1'
+      }
+    ];
+
+    /**
+     * ============================================================================
+     * 2. Complete 6-Day Schedule Dataset (24 - 29 November 2026)
      * General participants only (no staff/logistics duties)
+     * ============================================================================
      */
     const scheduleData = [
       {
@@ -749,6 +842,16 @@
     const fontIncreaseBtn = document.getElementById('fontIncreaseBtn');
     const fontSizeLabel = document.getElementById('fontSizeLabel');
 
+    // OneDrive Files Modal
+    const openFilesModalBtn = document.getElementById('openFilesModalBtn');
+    const fileCountBadge = document.getElementById('fileCountBadge');
+    const filesModal = document.getElementById('filesModal');
+    const filesModalBackdrop = document.getElementById('filesModalBackdrop');
+    const filesModalPanel = document.getElementById('filesModalPanel');
+    const closeFilesModalBtn = document.getElementById('closeFilesModalBtn');
+    const closeFilesModalBtn2 = document.getElementById('closeFilesModalBtn2');
+    const oneDriveFileList = document.getElementById('oneDriveFileList');
+
     // Daily Schedule Modal
     const scheduleModal = document.getElementById('scheduleModal');
     const modalBackdrop = document.getElementById('modalBackdrop');
@@ -767,6 +870,95 @@
     const toastIcon = document.getElementById('toastIcon');
     const toastIconWrap = document.getElementById('toastIconWrap');
     const toastActionBtn = document.getElementById('toastActionBtn');
+
+    // ==================== ONEDRIVE FILES MODAL LOGIC ====================
+    function getFileIconStyle(type) {
+      switch (type) {
+        case 'pdf':
+          return { icon: 'fa-file-pdf', box: 'bg-rose-50 text-rose-600 border-rose-200', tag: 'PDF' };
+        case 'word':
+          return { icon: 'fa-file-word', box: 'bg-blue-50 text-blue-600 border-blue-200', tag: 'Word' };
+        case 'excel':
+          return { icon: 'fa-file-excel', box: 'bg-emerald-50 text-emerald-600 border-emerald-200', tag: 'Excel' };
+        case 'image':
+          return { icon: 'fa-file-image', box: 'bg-purple-50 text-purple-600 border-purple-200', tag: 'รูปภาพ' };
+        default:
+          return { icon: 'fa-folder-open', box: 'bg-amber-50 text-amber-600 border-amber-200', tag: 'OneDrive' };
+      }
+    }
+
+    function renderOneDriveFiles() {
+      fileCountBadge.textContent = oneDriveFiles.length;
+
+      oneDriveFileList.innerHTML = oneDriveFiles.map((file, idx) => {
+        const style = getFileIconStyle(file.type);
+        const isPlaceholder = !file.url || file.url === '#' || file.url.includes('ใส่ลิงก์_ONEDRIVE');
+
+        return `
+          <a
+            href="${isPlaceholder ? '#onedrive-placeholder' : file.url}"
+            ${isPlaceholder ? `onclick="event.preventDefault(); showToast('ยังไม่ได้ใส่ลิงก์ OneDrive', 'แก้ไข URL ในตัวแปร oneDriveFiles ลำดับที่ ${idx + 1}', true);"` : 'target="_blank" rel="noopener noreferrer"'}
+            class="group flex items-center gap-3.5 bg-white rounded-2xl p-4 border-2 border-slate-200/90 hover:border-achablue-600 shadow-sm hover:shadow-md active:scale-[0.99] transition-all"
+          >
+            <div class="w-12 h-12 rounded-2xl border ${style.box} flex items-center justify-center shrink-0">
+              <i class="fa-solid ${style.icon} text-xl"></i>
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="px-2 py-0.5 rounded-md text-xs font-prompt font-bold bg-slate-100 text-slate-600">
+                  ${style.tag}
+                </span>
+              </div>
+              <h4 class="font-prompt text-base font-bold text-brandnavy group-hover:text-achablue-700 leading-snug">
+                ${file.title}
+              </h4>
+              <p class="text-sm text-slate-600 mt-0.5 leading-relaxed">
+                ${file.desc}
+              </p>
+            </div>
+
+            <div class="w-9 h-9 rounded-full bg-achablue-50 text-achablue-600 group-hover:bg-achablue-600 group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
+              <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+            </div>
+          </a>
+        `;
+      }).join('');
+    }
+
+    function openFilesModal() {
+      hideToast();
+      renderOneDriveFiles();
+
+      filesModal.classList.remove('hidden');
+      filesModal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+
+      requestAnimationFrame(() => {
+        filesModalBackdrop.classList.remove('opacity-0');
+        filesModalBackdrop.classList.add('opacity-100');
+        filesModalPanel.classList.remove('translate-y-full', 'sm:translate-y-6', 'sm:scale-95', 'opacity-0');
+        filesModalPanel.classList.add('translate-y-0', 'sm:translate-y-0', 'sm:scale-100', 'opacity-100');
+      });
+    }
+
+    function closeFilesModal() {
+      filesModalBackdrop.classList.remove('opacity-100');
+      filesModalBackdrop.classList.add('opacity-0');
+      filesModalPanel.classList.remove('translate-y-0', 'sm:translate-y-0', 'sm:scale-100', 'opacity-100');
+      filesModalPanel.classList.add('translate-y-full', 'sm:translate-y-6', 'sm:scale-95', 'opacity-0');
+
+      setTimeout(() => {
+        filesModal.classList.add('hidden');
+        filesModal.classList.remove('flex');
+        document.body.classList.remove('overflow-hidden');
+      }, 280);
+    }
+
+    openFilesModalBtn.addEventListener('click', openFilesModal);
+    closeFilesModalBtn.addEventListener('click', closeFilesModal);
+    closeFilesModalBtn2.addEventListener('click', closeFilesModal);
+    filesModalBackdrop.addEventListener('click', closeFilesModal);
 
     // ==================== FONT SIZE SCALING (DEFAULT 14PX) ====================
     function applyFontStep(stepIndex) {
@@ -1392,12 +1584,10 @@
         exportPosterStage.innerHTML = buildExportPosterHTML(day);
         const posterRoot = document.getElementById('exportPosterRoot');
 
-        // Minimal frame paint wait so iOS keeps user gesture active as often as possible
         await new Promise((resolve) => requestAnimationFrame(resolve));
 
         const isIOS = isIOSDevice();
         const posterHeight = posterRoot.scrollHeight || 1600;
-        // Cap canvas dimensions on iOS Safari to stay safely under WebKit's 4096px / 16.7MP limit
         const safeScale = isIOS
           ? Math.min(2, Math.max(1.25, Math.floor((3900 / Math.max(800, posterHeight)) * 100) / 100))
           : 2;
@@ -1417,7 +1607,6 @@
         const blob = await canvasToJpegBlob(canvas, 0.92);
         const file = new File([blob], filename, { type: 'image/jpeg' });
 
-        // 1. iOS Path (or In-App Browser with file share support): Open native Share Sheet -> "Save Image" to Photos Album
         const canShareFile = typeof navigator.share === 'function' &&
           (!navigator.canShare || navigator.canShare({ files: [file] }));
 
@@ -1432,7 +1621,6 @@
             if (shareErr && shareErr.name === 'AbortError') {
               // User closed the share sheet intentionally
             } else if (shareErr && shareErr.name === 'NotAllowedError') {
-              // iOS Safari expired the click gesture during rendering -> offer instant 1-tap share button
               pendingSharePayload = { file, title: day.dateFull, blob, filename };
               showToast('สร้างภาพกำหนดการพร้อมแล้ว', 'แตะปุ่มเพื่อเลือก "บันทึกรูปภาพ" ลงอัลบั้ม', false, {
                 showAction: true,
@@ -1440,14 +1628,12 @@
                 duration: 12000
               });
             } else {
-              // Other share error -> fallback to opening image in new tab so user can long-press Save to Photos
               const url = URL.createObjectURL(blob);
               window.open(url, '_blank');
               showToast('สร้างภาพเรียบร้อยแล้ว', 'แตะค้างที่รูปภาพเพื่อบันทึกลงอัลบั้ม', false, { duration: 6000 });
             }
           }
         } else if (isIOS) {
-          // iOS fallback (e.g., LINE In-App Browser where Web Share API is unavailable)
           const url = URL.createObjectURL(blob);
           const opened = window.open(url, '_blank');
           if (!opened) {
@@ -1462,7 +1648,6 @@
             { duration: 6500 }
           );
         } else if (isInAppBrowser() && canShareFile) {
-          // Android inside LINE/Facebook in-app browser where direct blob download may be blocked
           try {
             await navigator.share({ files: [file], title: day.dateFull });
           } catch (e) {
@@ -1472,7 +1657,6 @@
             }
           }
         } else {
-          // 2. Android & Desktop Path: Direct Blob download (Android automatically adds it to Gallery/Album)
           downloadBlobDirectly(blob, filename);
           showToast('บันทึกภาพลงเครื่องเรียบร้อยแล้ว', `${filename} (อยู่ในอัลบั้ม/ดาวน์โหลด)`, false);
         }
@@ -1535,6 +1719,10 @@
 
     // Keyboard Accessibility
     document.addEventListener('keydown', (e) => {
+      if (!filesModal.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeFilesModal();
+        return;
+      }
       if (scheduleModal.classList.contains('hidden')) return;
       if (e.key === 'Escape') closeScheduleModal();
       else if (e.key === 'ArrowLeft' && currentDayIndex > 0) populateModal(currentDayIndex - 1);
@@ -1569,6 +1757,7 @@
     });
 
     // Initial Render
+    fileCountBadge.textContent = oneDriveFiles.length;
     applyFontStep(currentFontStep);
     renderBulletList();
   </script>
